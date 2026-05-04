@@ -211,3 +211,5 @@ Claude’s work is only complete when it is:
 - Root-cause sound
 
 Anything less is incomplete.
+
+run the build after completed changes you make and if it fails fix them.

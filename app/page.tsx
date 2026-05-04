@@ -8,7 +8,6 @@ import BgVideo from "./components/BgVideo";
 import Nav from "./components/Nav";
 import Fab from "./components/Fab";
 import ArrowIcon from "./components/ArrowIcon";
-import Laurel from "./components/Laurel";
 
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -71,7 +70,7 @@ export default function HomePage() {
 
             <p className="co-sub" data-hero-stagger>
               <span className="co-sub__lead">
-                Freeing up your time to do the Lord's Work
+                Freeing up your time to do the Lord&rsquo;s Work
               </span>
               Custom built software and AI automations allowing you to focus on
               the business you love
