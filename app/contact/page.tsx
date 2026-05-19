@@ -1,154 +1,100 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import BgVideo from "../components/BgVideo";
 import Nav from "../components/Nav";
-import Fab from "../components/Fab";
 
 export default function ContactPage() {
-  const innerRef = useRef<HTMLDivElement>(null);
-  const pillDotRef = useRef<HTMLSpanElement>(null);
-  const sendBtnRef = useRef<HTMLButtonElement>(null);
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const msg = params.get("msg");
-    if (msg) setMessage(msg);
-  }, []);
-
-  useEffect(() => {
-    const root = innerRef.current;
-    if (!root) return;
-    const targets = root.querySelectorAll<HTMLElement>("[data-hero-stagger]");
-    gsap.fromTo(
-      targets,
-      { y: 24, opacity: 0, filter: "blur(6px)" },
-      {
-        y: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.09,
-        delay: 0.25,
-      },
-    );
-  }, []);
-
-  useEffect(() => {
-    if (!pillDotRef.current) return;
-    const tl = gsap.to(pillDotRef.current, {
-      scale: 1.35,
-      opacity: 0.7,
-      duration: 1.1,
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true,
-    });
-    return () => {
-      tl.kill();
-    };
-  }, []);
-
-  useEffect(() => {
-    const btn = sendBtnRef.current;
-    if (!btn) return;
-    const onEnter = () =>
-      gsap.to(btn, { y: -2, duration: 0.25, ease: "power2.out" });
-    const onLeave = () =>
-      gsap.to(btn, { y: 0, duration: 0.35, ease: "power2.out" });
-    btn.addEventListener("mouseenter", onEnter);
-    btn.addEventListener("mouseleave", onLeave);
-    return () => {
-      btn.removeEventListener("mouseenter", onEnter);
-      btn.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
-
   return (
-    <>
-      <BgVideo />
-      <div className="co-page" data-screen-label="Contact">
+    <main className="studio-shell bg-[var(--color-bg)] text-[var(--color-fg)]">
+      <section className="studio-hero relative isolate min-h-screen overflow-hidden">
+        <div className="studio-hero__grain" aria-hidden="true" />
+        <div className="studio-hero__glow" aria-hidden="true" />
+        <div className="studio-hero__beam" aria-hidden="true" />
+        <div className="studio-hero__grid" aria-hidden="true" />
+
         <Nav current="contact" />
-        <main className="co-hero" style={{ paddingTop: 64, paddingBottom: 96 }}>
-          <div className="co-hero__inner" ref={innerRef}>
-            <h1 className="co-display" data-hero-stagger>
-              <em>Contact us</em>
-            </h1>
 
-            <p className="co-sub" data-hero-stagger>
-              We’d love to hear from you — send us a message and we’ll be in
-              touch soon.
-            </p>
-
-            <div className="co-contact-grid" data-hero-stagger>
-              <aside className="co-card co-card--email">
-                <p className="co-card--email__label">Our email</p>
-                <a
-                  className="co-card--email__link"
-                  href="mailto:lorem@coverl.com"
-                >
-                  lorem@coverl.com
-                </a>
-              </aside>
-
-              <form
-                className="co-card co-form"
-                onSubmit={(e) => e.preventDefault()}
-                aria-label="Contact form"
-              >
-                <div className="co-field">
-                  <label className="co-label" htmlFor="contact-name">
-                    Name
-                  </label>
-                  <input
-                    id="contact-name"
-                    className="co-input"
-                    type="text"
-                    autoComplete="name"
-                  />
-                </div>
-
-                <div className="co-field">
-                  <label className="co-label" htmlFor="contact-email">
-                    Email Address
-                  </label>
-                  <input
-                    id="contact-email"
-                    className="co-input"
-                    type="email"
-                    autoComplete="email"
-                  />
-                </div>
-
-                <div className="co-field">
-                  <label className="co-label" htmlFor="contact-message">
-                    Message
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    className="co-textarea"
-                    rows={5}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div>
-
-                <button
-                  ref={sendBtnRef}
-                  className="co-btn co-btn--white-lg co-btn--full"
-                  type="submit"
-                >
-                  Send Message
-                </button>
-              </form>
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1440px] items-center px-5 pb-14 pt-28 sm:px-7 sm:pb-16 lg:px-10 lg:pb-20">
+          <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:items-center">
+            <div className="max-w-[560px]">
+              <p className="studio-kicker studio-reveal mb-5">
+                Work with us / contact / placeholder
+              </p>
+              <h1 className="studio-display studio-reveal max-w-[12ch] text-balance">
+                Tell us what needs to move.
+              </h1>
+              <p className="studio-support studio-reveal mt-6 max-w-[36ch] text-pretty">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque luctus, ipsum vitae lacinia tincidunt, justo massa
+                gravida lacus, eget aliquet sem magna id est.
+              </p>
             </div>
+
+            <form className="studio-contact studio-reveal" action="#">
+              <div className="studio-contact__row">
+                <label className="studio-contact__label" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  className="studio-contact__input"
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Lorem Ipsum"
+                />
+              </div>
+              <div className="studio-contact__row">
+                <label className="studio-contact__label" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="studio-contact__input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="lorem@example.com"
+                />
+              </div>
+              <div className="studio-contact__row">
+                <label className="studio-contact__label" htmlFor="message">
+                  Message
+                </label>
+                <textarea
+                  className="studio-contact__textarea"
+                  id="message"
+                  name="message"
+                  placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  rows={6}
+                />
+              </div>
+              <button className="studio-cta studio-cta--primary" type="submit">
+                Send placeholder
+              </button>
+            </form>
           </div>
-        </main>
-      </div>
-      <Fab />
-    </>
+        </div>
+      </section>
+
+      <section className="studio-service studio-service--ai">
+        <div className="studio-service__grain" aria-hidden="true" />
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 sm:px-7 lg:grid-cols-[minmax(320px,1fr)_minmax(0,560px)] lg:items-end lg:px-10 lg:py-24">
+          <div
+            className="studio-scene studio-scene--ai order-2 lg:order-1"
+            aria-hidden="true"
+          >
+            <div className="studio-scene__rack" />
+            <div className="studio-scene__pulse" />
+            <div className="studio-scene__trace" />
+          </div>
+          <div className="order-1 max-w-[540px] lg:order-2 lg:justify-self-end">
+            <p className="studio-kicker mb-5">Next / placeholder</p>
+            <h2 className="studio-section-title">
+              We start with the shape of the problem.
+            </h2>
+            <p className="studio-section-copy mt-5 max-w-[34ch]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              consequat risus at augue tincidunt, in facilisis magna varius.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
