@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 // 404s (stale dev hash, slow CDN). Without this, BgVideo renders at
 // intrinsic size and links fall back to blue-underlined defaults.
 const criticalCss = `
-html,body{margin:0;padding:0;background:#0b0806;color:#f0e4d3;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua","URW Palladio L",serif;-webkit-font-smoothing:antialiased}
+html,body{margin:0;padding:0;background:#ffffff;color:#11100e;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua","URW Palladio L",serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 *{box-sizing:border-box}
 `;

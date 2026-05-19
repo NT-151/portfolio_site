@@ -7,13 +7,13 @@ export default function Nav({
 }: {
   current?: Page;
 } = {}) {
-  const brandClass = "text-white";
+  const brandClass = "text-[var(--color-fg)]";
   const linkBase =
     "px-0 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] transition-colors sm:text-[11px]";
-  const inactiveLink = "!text-white/68 hover:!text-white";
-  const activeLink = "!text-white";
-  const navShell = "border-white/12";
-  const ctaClass = "!text-white hover:!text-[#f3a627]";
+  const inactiveLink = "!text-[rgba(17,16,14,0.64)] hover:!text-[var(--color-fg)]";
+  const activeLink = "!text-[var(--color-fg)]";
+  const navShell = "border-black/12";
+  const ctaClass = "!text-[var(--color-fg)] hover:!text-[#9a5f09]";
   const aria = (page: Page) =>
     current === page ? { "aria-current": "page" as const } : {};
 

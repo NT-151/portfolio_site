@@ -12,7 +12,7 @@ export default function HomePage() {
 
         <Nav />
 
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1440px] items-center px-5 pb-14 pt-28 sm:px-7 sm:pb-16 lg:px-10 lg:pb-20">
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1440px] items-start px-5 pb-14 pt-44 sm:items-center sm:px-7 sm:pb-16 sm:pt-28 lg:px-10 lg:pb-20">
           <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,640px)_minmax(320px,1fr)] lg:items-center">
             <div className="max-w-[640px]">
               <p className="studio-kicker studio-reveal mb-5">
