@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "./components/Nav";
 import MotionSection from "./components/MotionSection";
+import StudioAnimations from "./components/StudioAnimations";
 
 const process = [
   {
@@ -23,9 +24,43 @@ const process = [
   },
 ];
 
+const projects = [
+  {
+    number: "01",
+    name: "Intake layer",
+    label: "Classification / routing",
+    year: "2026",
+  },
+  {
+    number: "02",
+    name: "Decision rhythm",
+    label: "Approvals / review",
+    year: "2026",
+  },
+  {
+    number: "03",
+    name: "Knowledge trace",
+    label: "Search / evidence",
+    year: "2026",
+  },
+];
+
+function SplitWords({ text }: { text: string }) {
+  return (
+    <span className="studio-split" aria-label={text}>
+      {text.split(" ").map((word, index) => (
+        <span className="studio-split__mask" aria-hidden="true" key={`${word}-${index}`}>
+          <span className="studio-split__word">{word}</span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="studio-shell bg-[var(--color-bg)] text-[var(--color-fg)]">
+      <StudioAnimations />
       <section className="studio-hero relative isolate min-h-screen overflow-hidden">
         <div className="studio-hero__grain" aria-hidden="true" />
         <div className="studio-hero__glow" aria-hidden="true" />
@@ -41,7 +76,7 @@ export default function HomePage() {
                 AI operating systems / visual strategy / quiet automation
               </p>
               <h1 className="studio-display studio-reveal studio-display--editorial text-balance">
-                Transforming operational drag into cinematic systems.
+                <SplitWords text="Transforming operational drag into cinematic systems." />
               </h1>
               <div className="studio-reveal mt-8 flex flex-wrap items-end justify-between gap-6">
                 <p className="studio-support max-w-[42ch] text-pretty">
@@ -102,8 +137,41 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-7 lg:px-10 lg:py-28">
           <p className="studio-kicker mb-8">Studio position</p>
           <h2>
-            Systems that read the room before they move the work forward.
+            <SplitWords text="Systems that read the room before they move the work forward." />
           </h2>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="studio-projects" id="work">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(360px,1fr)] lg:px-10 lg:py-28">
+          <div className="studio-projects__sticky">
+            <p className="studio-kicker mb-5">Selected motion systems</p>
+            <h2 className="studio-section-title studio-section-title--wide">
+              <SplitWords text="Work that moves like a directed sequence." />
+            </h2>
+          </div>
+          <div className="studio-project-stack">
+            {projects.map((project) => (
+              <article className="studio-project-card" key={project.number}>
+                <div className="studio-project-card__visual" aria-hidden="true">
+                  <div className="studio-project-card__grid" />
+                  <div className="studio-project-card__pulse" />
+                  <div className="studio-project-card__marquee">
+                    <span>view project / view project / view project /</span>
+                    <span>view project / view project / view project /</span>
+                  </div>
+                </div>
+                <div className="studio-project-card__body">
+                  <p className="studio-kicker">{project.number}</p>
+                  <h3>{project.name}</h3>
+                  <div>
+                    <span>{project.label}</span>
+                    <span>{project.year}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </MotionSection>
 
