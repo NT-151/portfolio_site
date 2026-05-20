@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 };
 
 // Inlined floor so the page degrades gracefully if the main stylesheet
-// 404s (stale dev hash, slow CDN). Without this, BgVideo renders at
-// intrinsic size and links fall back to blue-underlined defaults.
+// 404s (stale dev hash, slow CDN). Without this, links fall back to
+// blue-underlined defaults.
 const criticalCss = `
 html,body{margin:0;padding:0;background:#ffffff;color:#11100e;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua","URW Palladio L",serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}

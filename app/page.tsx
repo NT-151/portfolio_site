@@ -65,10 +65,29 @@ export default function HomePage() {
       </section>
 
       <MotionSection className="studio-reel">
-        <div className="studio-reel__media" aria-hidden="true">
-          <video autoPlay loop muted playsInline preload="metadata">
-            <source src="/moon.mp4" type="video/mp4" />
-          </video>
+        <div className="studio-reel__stage" aria-hidden="true">
+          <div className="studio-flow studio-flow--intake">
+            <span>intake</span>
+            <strong>classify request</strong>
+          </div>
+          <div className="studio-flow studio-flow--route">
+            <span>routing</span>
+            <strong>assign owner</strong>
+          </div>
+          <div className="studio-flow studio-flow--trace">
+            <span>trace</span>
+            <strong>review output</strong>
+          </div>
+          <div className="studio-node studio-node--one" />
+          <div className="studio-node studio-node--two" />
+          <div className="studio-node studio-node--three" />
+          <div className="studio-orbit studio-orbit--one" />
+          <div className="studio-orbit studio-orbit--two" />
+          <div className="studio-scanline" />
+          <div className="studio-marquee">
+            <span>signal stable / handoff reduced / context ready /</span>
+            <span>signal stable / handoff reduced / context ready /</span>
+          </div>
         </div>
         <div className="studio-reel__caption">
           <p className="studio-kicker">Moving interface / operating atmosphere</p>
