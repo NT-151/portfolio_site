@@ -204,22 +204,40 @@ export default function HomePage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="studio-service studio-cta-band">
+      <MotionSection className="studio-footer">
         <div className="studio-service__grain" aria-hidden="true" />
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-24 sm:px-7 lg:grid-cols-[minmax(0,0.78fr)_auto] lg:items-end lg:px-10 lg:py-32">
-          <div>
-            <p className="studio-kicker mb-5">Commission / next system</p>
-            <h2 className="studio-section-title studio-section-title--wide">
-              Let&apos;s build the operating layer your team keeps needing.
+        <div className="studio-footer__mark" aria-hidden="true" />
+        <div className="studio-footer__inner">
+          <div className="studio-footer__headline">
+            <h2>
+              <span>Let&apos;s work</span>
+              <span>together</span>
             </h2>
-            <p className="studio-section-copy mt-5 max-w-[38ch]">
-              Bring the workflows that feel too slow, too manual, or too
-              dependent on one person. We will turn them into a designed system.
-            </p>
+            <Link href="/contact" className="studio-footer__button">
+              Book a call
+            </Link>
           </div>
-          <Link href="/contact" className="studio-cta studio-cta--primary">
-            Work with us
-          </Link>
+
+          <div className="studio-footer__links" aria-label="Footer navigation">
+            <nav>
+              <Link href="/work">Work</Link>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+            </nav>
+            <nav>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+            </nav>
+          </div>
+
+          <div className="studio-footer__meta">
+            <p>©Coverl. All rights reserved · <Link href="/contact">Privacy</Link></p>
+            <p>Website by <Link href="/">Coverl</Link></p>
+          </div>
         </div>
       </MotionSection>
     </main>
