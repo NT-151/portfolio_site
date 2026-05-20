@@ -208,15 +208,12 @@ export default function HomePage() {
         <div className="studio-service__grain" aria-hidden="true" />
         <div className="studio-footer__mark" aria-hidden="true" />
         <div className="studio-footer__inner">
-          <div className="studio-footer__headline">
+          <Link href="/contact" className="studio-footer__headline">
             <h2>
               <span>Let&apos;s work</span>
               <span>together</span>
             </h2>
-            <Link href="/contact" className="studio-footer__button">
-              Book a call
-            </Link>
-          </div>
+          </Link>
 
           <div className="studio-footer__links" aria-label="Footer navigation">
             <nav>

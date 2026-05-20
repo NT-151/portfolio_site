@@ -709,7 +709,12 @@ body {
 .studio-footer__headline {
   position: relative;
   align-self: start;
+  display: block;
   padding-top: clamp(1.5rem, 5vw, 3.5rem);
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .studio-footer__headline h2 {
@@ -731,7 +736,8 @@ body {
   padding-right: min(8vw, 5rem);
 }
 
-.studio-footer__button {
+.studio-footer__headline::after {
+  content: "Contact";
   position: absolute;
   left: min(62vw, 820px);
   top: clamp(2.25rem, 7vw, 4.8rem);
@@ -753,8 +759,13 @@ body {
     box-shadow 180ms ease;
 }
 
-.studio-footer__button:hover {
+.studio-footer__headline:hover {
+  color: rgba(16, 17, 18, 0.76);
   transform: translateY(-3px);
+}
+
+.studio-footer__headline:hover::after {
+  transform: translateY(-2px);
   background: rgba(226, 160, 54, 1);
   box-shadow: 0 20px 60px rgba(184, 121, 24, 0.18);
 }
@@ -1551,8 +1562,10 @@ body {
     padding-left: 3.2rem;
   }
 
-  .studio-footer__button {
-    position: static;
+  .studio-footer__headline::after {
+    position: relative;
+    left: auto;
+    top: auto;
     min-width: 0;
     min-height: 58px;
     width: fit-content;
