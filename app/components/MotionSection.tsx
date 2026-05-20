@@ -18,12 +18,8 @@ export default function MotionSection({
     <motion.section
       id={id}
       className={className}
-      initial={
-        reduceMotion ? false : { opacity: 0, y: 34, filter: "blur(8px)" }
-      }
-      whileInView={
-        reduceMotion ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }
-      }
+      initial={reduceMotion ? false : { opacity: 1, y: 24 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-12% 0px" }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
