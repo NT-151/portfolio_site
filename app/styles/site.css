@@ -714,7 +714,8 @@ body {
   cursor: pointer;
   transition:
     color 180ms ease,
-    transform 180ms ease;
+    transform 180ms ease,
+    opacity 180ms ease;
 }
 
 .studio-footer__headline h2 {
@@ -736,38 +737,10 @@ body {
   padding-right: min(8vw, 5rem);
 }
 
-.studio-footer__headline::after {
-  content: "Contact";
-  position: absolute;
-  left: min(62vw, 820px);
-  top: clamp(2.25rem, 7vw, 4.8rem);
-  display: inline-flex;
-  min-height: 86px;
-  min-width: 238px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: rgba(226, 160, 54, 0.9);
-  color: #101112;
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2vw, 1.7rem);
-  line-height: 1;
-  text-transform: uppercase;
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
 .studio-footer__headline:hover {
-  color: rgba(16, 17, 18, 0.76);
+  color: var(--color-accent);
+  opacity: 0.92;
   transform: translateY(-3px);
-}
-
-.studio-footer__headline:hover::after {
-  transform: translateY(-2px);
-  background: rgba(226, 160, 54, 1);
-  box-shadow: 0 20px 60px rgba(184, 121, 24, 0.18);
 }
 
 .studio-footer__links {
@@ -1560,18 +1533,6 @@ body {
     justify-self: start;
     padding-right: 0;
     padding-left: 3.2rem;
-  }
-
-  .studio-footer__headline::after {
-    position: relative;
-    left: auto;
-    top: auto;
-    min-width: 0;
-    min-height: 58px;
-    width: fit-content;
-    margin-top: 1.35rem;
-    padding: 0 1.5rem;
-    font-size: 1.05rem;
   }
 
   .studio-footer__links {
