@@ -24,7 +24,7 @@ export default function Nav({
           <Link
             href="/"
             className="flex min-h-[52px] items-center gap-3"
-            aria-label="Coverl home"
+            aria-label="allinhaus home"
           >
             <svg
               width="22"
@@ -61,9 +61,9 @@ export default function Nav({
               />
             </svg>
             <span
-              className={`font-[IBM_Plex_Mono,JetBrains_Mono,SFMono-Regular,Menlo,Consolas,monospace] text-[12px] font-semibold uppercase tracking-[0.26em] sm:text-[13px] ${brandClass}`}
+              className={`font-[IBM_Plex_Mono,JetBrains_Mono,SFMono-Regular,Menlo,Consolas,monospace] text-[12px] font-semibold tracking-[0.26em] sm:text-[13px] ${brandClass}`}
             >
-              Coverl
+              allinhaus
             </span>
           </Link>
 

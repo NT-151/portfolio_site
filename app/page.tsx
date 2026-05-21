@@ -80,7 +80,7 @@ export default function HomePage() {
               </h1>
               <div className="studio-reveal mt-8 flex flex-wrap items-end justify-between gap-6">
                 <p className="studio-support max-w-[42ch] text-pretty">
-                  Coverl aligns scattered work, team knowledge, and recurring
+                  allinhaus aligns scattered work, team knowledge, and recurring
                   decisions into designed systems that feel calm, legible, and
                   ready to operate.
                 </p>
@@ -232,8 +232,8 @@ export default function HomePage() {
           </div>
 
           <div className="studio-footer__meta">
-            <p>©Coverl. All rights reserved · <Link href="/contact">Privacy</Link></p>
-            <p>Website by <Link href="/">Coverl</Link></p>
+            <p>©allinhaus. All rights reserved · <Link href="/contact">Privacy</Link></p>
+            <p>Website by <Link href="/">allinhaus</Link></p>
           </div>
         </div>
       </MotionSection>

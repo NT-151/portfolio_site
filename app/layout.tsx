@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./styles/site.css";
 
 export const metadata: Metadata = {
-  title: "Coverl — cinematic web design and AI automation",
+  title: "allinhaus — cinematic web design and AI automation",
   description:
-    "Coverl is a studio for cinematic web design and quiet AI automation.",
+    "allinhaus is a studio for cinematic web design and quiet AI automation.",
 };
 
 // Inlined floor so the page degrades gracefully if the main stylesheet

@@ -1,9 +1,8 @@
 {
-  "name": "coverl",
+  "name": "allinhaus",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "lsof -ti:3000 2>/dev/null | xargs kill -9 2>/dev/null; exit 0",
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start -p 3000",
