@@ -1,33 +1,29 @@
 import type { Metadata } from "next";
+import { Hanken_Grotesk, Inter } from "next/font/google";
 import "./styles/site.css";
 
-export const metadata: Metadata = {
-  title: "allinhaus — cinematic web design and AI automation",
-  description:
-    "allinhaus is a studio for cinematic web design and quiet AI automation.",
-};
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-hanken-grotesk",
+});
 
-// Inlined floor so the page degrades gracefully if the main stylesheet
-// 404s (stale dev hash, slow CDN). Without this, links fall back to
-// blue-underlined defaults.
-const criticalCss = `
-html,body{margin:0;padding:0;background:#f8f8f5;color:#11100e;font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua","URW Palladio L",serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-*{box-sizing:border-box}
-`;
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
+  title: "AETHEREAL | AI Automation Agency",
+  description:
+    "AETHEREAL architects custom AI automation solutions for modern business operations.",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <style dangerouslySetInnerHTML={{ __html: criticalCss }} />
-      </head>
-      <body
-        style={{
-          fontFamily:
-            '"Iowan Old Style", "Palatino Linotype", "Book Antiqua", "URW Palladio L", serif',
-        }}
-      >
+    <html className="light" lang="en">
+      <body className={`${hankenGrotesk.variable} ${inter.variable}`}>
         {children}
       </body>
     </html>

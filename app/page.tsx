@@ -1,222 +1,429 @@
-import Link from "next/link";
-import Nav from "./components/Nav";
-import MotionSection from "./components/MotionSection";
-import OperationalAtmosphere from "./components/OperationalAtmosphere";
-import StudioAnimations from "./components/StudioAnimations";
+"use client";
 
-const process = [
+import Image from "next/image";
+import { useEffect } from "react";
+
+const services = [
   {
-    number: "01",
-    label: "Map",
-    title: "Find the work that keeps repeating.",
-    copy: "We start inside the real operating rhythm: inboxes, handoffs, tools, approvals, and the judgement calls that slow the team down.",
+    icon: "settings_input_component",
+    title: "Workflow Automation",
+    copy: "Eliminate repetitive tasks by mapping and automating cross-platform workflows. We connect your stack to act as a single, cohesive organism.",
   },
   {
-    number: "02",
-    label: "Shape",
-    title: "Turn the pattern into a controlled system.",
-    copy: "The first version is narrow on purpose, with clear inputs, review points, and output traces the team can trust.",
+    icon: "psychology",
+    title: "Custom LLM Development",
+    copy: "Fine-tuned language models built on your proprietary data. We deliver context-aware AI that understands your brand voice and technical nuances.",
   },
   {
-    number: "03",
-    label: "Run",
-    title: "Launch it where the work already happens.",
-    copy: "Automations are fitted around existing behaviour, then measured, adjusted, and expanded only when the operating signal is stable.",
+    icon: "architecture",
+    title: "Strategic AI Consulting",
+    copy: "Roadmapping your AI transformation. We identify the highest-impact opportunities for automation and guide implementation at scale.",
   },
 ];
 
-const projects = [
+const processSteps = [
   {
     number: "01",
-    name: "Intake layer",
-    label: "Classification / routing",
-    year: "2026",
+    title: "Discovery",
+    copy: "Deep-dive into current bottlenecks and data structures to find hidden efficiency gaps.",
   },
   {
     number: "02",
-    name: "Decision rhythm",
-    label: "Approvals / review",
-    year: "2026",
+    title: "Architecture",
+    copy: "Designing the bespoke AI framework and integration layer tailored to your specific ecosystem.",
   },
   {
     number: "03",
-    name: "Knowledge trace",
-    label: "Search / evidence",
-    year: "2026",
+    title: "Implementation",
+    copy: "Deployment of custom agents and LLMs with seamless onboarding for your core team.",
+  },
+  {
+    number: "04",
+    title: "Optimization",
+    copy: "Continuous monitoring and feedback loops to ensure the AI evolves with your business growth.",
   },
 ];
 
-function SplitWords({ text }: { text: string }) {
+const caseStudies = [
+  {
+    industry: "Fintech",
+    title: "Global Asset Management",
+    copy: "Automating complex document triage and risk assessment workflows.",
+    metric: "80%",
+    metricLabel: "Efficiency Gain",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuD67ujTlXNEpb1FnuJ7Rt2AE2NA9iMZceSwUx7W8cJRmkK9rI9urzYVR51_qv2AN8P-y9EBo9AnJ0q3Jw4MkspWqEA-ZuVJpOUm8zhbrFfvTnqaxawSw2F97L1fwJYG-yPWwh2ESI77W6IfTe736l1Ixetw-fYJMIP6GLUsMFTE6xBpnxT8mDDBItsOY3TQc873dDcoqcBiI0A9wl8dluWqFGIYMQfP72AGpKJn6Ykcci5TPsWd8obUkRGLC9d3c4U46EUqepqYNg_f",
+    alt: "Data Visualization",
+    delay: "",
+  },
+  {
+    industry: "E-Commerce",
+    title: "Omnichannel Retailer",
+    copy: "Implementing custom LLM agents for hyper-personalized customer support.",
+    metric: "4.2x",
+    metricLabel: "Conversion Lift",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDiOBS1m74ARXmpZ_ETzI321hkjJwls6s1wxgvU9r6AFOA-N_hkwHCscg1iaxzQD9IHzYS5bpUpd0DtL5Rl8RDjO8SPHuUzvnc0XqUpK_NKlLiI6XeFqOC4_SYbxn8sKNrVrLfClBYXWTpF2Xa_lOeZlezeFJeDiCUT8hwdGCKqaFPm_v8GYZgazF0F6inr5bbiJ1N88Av7SZpt-8B2_-FFo0Nj69EW6uooBeyHlDGBAsgfwdWFTE_eCle9wHN7BF9yBG2VMKOyocWL",
+    alt: "Tech Abstraction",
+    delay: "reveal-delay-200",
+  },
+];
+
+function MenuIcon() {
   return (
-    <span className="studio-split" aria-label={text}>
-      {text.split(" ").map((word, index) => (
-        <span
-          className="studio-split__mask"
-          aria-hidden="true"
-          key={`${word}-${index}`}
-        >
-          <span className="studio-split__word">{word}</span>
-        </span>
-      ))}
-    </span>
+    <svg
+      aria-hidden="true"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
+function ServiceIcon({ name }: { name: string }) {
+  const shared = {
+    className:
+      "mb-6 h-10 w-10 text-primary transition-colors group-hover:text-muted-teal",
+    fill: "none",
+    viewBox: "0 0 40 40",
+    "aria-hidden": true,
+  } as const;
+
+  if (name === "psychology") {
+    return (
+      <svg {...shared}>
+        <path
+          d="M16 31v-5.5h-2.5a6.5 6.5 0 0 1-2.2-12.6A7.5 7.5 0 0 1 25.8 11a6.9 6.9 0 0 1 2.7 13.2V31"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+        <path
+          d="M17 15.5h6M17 20h9M21 24.5h5"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="2"
+        />
+      </svg>
+    );
+  }
+
+  if (name === "architecture") {
+    return (
+      <svg {...shared}>
+        <path
+          d="M8 31V14l12-6 12 6v17M13 31V18h14v13M20 8v23"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+        <path d="M16 22h8" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...shared}>
+      <path
+        d="M8 12h11M25 12h7M8 20h7M21 20h11M8 28h15M29 28h3"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2"
+      />
+      <circle cx="22" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
+      <circle cx="18" cy="20" r="3" stroke="currentColor" strokeWidth="2" />
+      <circle cx="26" cy="28" r="3" stroke="currentColor" strokeWidth="2" />
+    </svg>
   );
 }
 
 export default function HomePage() {
+  useEffect(() => {
+    const revealElements = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.1 },
+    );
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+
+    return () => revealObserver.disconnect();
+  }, []);
+
   return (
-    <main className="studio-shell bg-[var(--color-bg)] text-[var(--color-fg)]">
-      <StudioAnimations />
-      <section className="studio-hero relative isolate min-h-screen overflow-hidden">
-        <div className="studio-hero__grain" aria-hidden="true" />
-        <div className="studio-hero__glow" aria-hidden="true" />
-        <div className="studio-hero__beam" aria-hidden="true" />
-        <div className="studio-hero__grid" aria-hidden="true" />
+    <div className="font-body-md text-body-md bg-background text-on-surface">
+      <header className="sticky top-0 z-50 w-full border-b border-primary/10 bg-surface">
+        <nav className="mx-auto flex h-20 max-w-max-width items-center justify-between px-margin-desktop">
+          <div className="font-headline-md text-headline-md font-bold tracking-tighter text-primary">
+            AETHEREAL
+          </div>
+          <div className="hidden items-center gap-10 md:flex">
+            <a
+              className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
+              href="#services"
+            >
+              SERVICES
+            </a>
+            <a
+              className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
+              href="#process"
+            >
+              PROCESS
+            </a>
+            <a
+              className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
+              href="#portfolio"
+            >
+              PORTFOLIO
+            </a>
+            <button
+              className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-on-primary transition-all hover:opacity-80"
+              type="button"
+            >
+              CONSULTATION
+            </button>
+          </div>
+          <button className="text-primary md:hidden" type="button">
+            <MenuIcon />
+          </button>
+        </nav>
+      </header>
 
-        <Nav />
-
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1440px] items-end px-5 pb-10 pt-36 sm:px-7 sm:pb-12 lg:px-10">
-          <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,0.58fr)] lg:items-end">
-            <div>
-              <p className="studio-kicker studio-reveal mb-6">
-                AI operating systems / visual strategy / quiet automation
-              </p>
-              <h1 className="studio-display studio-reveal studio-display--editorial text-balance">
-                <SplitWords text="Transforming operational drag into cinematic systems." />
+      <main>
+        <section className="mx-auto max-w-max-width overflow-hidden px-margin-desktop py-32 md:py-48">
+          <div className="grid grid-cols-12 items-center gap-gutter">
+            <div className="reveal col-span-12 md:col-span-8">
+              <h1 className="mb-8 max-w-4xl font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
+                INTELLIGENCE,
+                <br />
+                AUTOMATED.
               </h1>
-              <div className="studio-reveal mt-8 flex flex-wrap items-end justify-between gap-6">
-                <p className="studio-support max-w-[42ch] text-pretty">
-                  allinhaus aligns scattered work, team knowledge, and recurring
-                  decisions into designed systems that feel calm, legible, and
-                  ready to operate.
-                </p>
-                <Link
-                  href="/contact"
-                  className="studio-cta studio-cta--primary"
+              <p className="mb-12 max-w-xl font-body-lg text-body-lg text-on-surface-variant">
+                AETHEREAL architects the next generation of business operations.
+                We build custom AI solutions that allow your team to transcend
+                routine and focus on innovation.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button
+                  className="rounded-DEFAULT bg-primary px-8 py-4 font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal"
+                  type="button"
                 >
-                  Start a conversation
-                </Link>
+                  START THE EVOLUTION
+                </button>
+                <button
+                  className="rounded-DEFAULT border border-primary px-8 py-4 font-label-caps text-label-caps text-primary transition-colors hover:bg-surface-variant"
+                  type="button"
+                >
+                  VIEW CAPABILITIES
+                </button>
               </div>
             </div>
-
-            <div className="studio-reveal studio-hero-card lg:justify-self-end">
-              <p>System direction</p>
-              <span>Manual work made visible, shaped, and reduced.</span>
-              <span>Automation with a clear operating trace.</span>
+            <div className="reveal reveal-delay-200 relative col-span-4 hidden md:block">
+              <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-full border border-primary/5 bg-surface-container-high">
+                <Image
+                  alt="AI Abstraction"
+                  className="h-full w-full object-cover opacity-80 mix-blend-multiply"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKMYgK7msAs6oNfB_INfI68ROtYfu3WBVlpKVh54v6E1z0YM2g3_73wqygVJ814QfKF2yy4meg3O6ykGalrnXhRJynMrGxtLUjHoQqbPiBxD5Cy1eUhqDoJUpA_fFVZ9RBuOshPDP2lJaRvtHJxG9NQ-uR4CmIzqQb0JYen8k0E3cyLE92ubp9RB7b1N9D_ppwbg_DwF1r34wxv1-9d5313quXw4-PkHrRtVnvQM3EzVzr3U2NIqiD8-xgqADBpbT5CQPRykTlN3Dj"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <OperationalAtmosphere />
-
-      <MotionSection className="studio-projects" id="work">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(360px,1fr)] lg:px-10 lg:py-28">
-          <div className="studio-projects__sticky">
-            <p className="studio-kicker mb-5">Selected motion systems</p>
-            <h2 className="studio-section-title studio-section-title--wide">
-              <SplitWords text="Work that moves like a directed sequence." />
-            </h2>
+        <section
+          className="border-y border-primary/5 bg-white py-24"
+          id="services"
+        >
+          <div className="mx-auto max-w-max-width px-margin-desktop">
+            <div className="reveal mb-16">
+              <span className="font-label-caps text-label-caps text-muted-teal">
+                EXPERTISE
+              </span>
+              <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
+                CORE CAPABILITIES
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {services.map((service, index) => (
+                <div
+                  className={`reveal reveal-delay-${(index + 1) * 100} group border border-primary/10 p-10 transition-colors hover:border-muted-teal`}
+                  key={service.title}
+                >
+                  <ServiceIcon name={service.icon} />
+                  <h3 className="mb-4 font-headline-md text-headline-md text-primary">
+                    {service.title}
+                  </h3>
+                  <p className="font-body-md leading-relaxed text-on-surface-variant">
+                    {service.copy}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="studio-project-stack">
-            {projects.map((project) => (
-              <article className="studio-project-card" key={project.number}>
-                <div className="studio-project-card__visual" aria-hidden="true">
-                  <div className="studio-project-card__grid" />
-                  <div className="studio-project-card__pulse" />
-                  <div className="studio-project-card__marquee">
-                    <span>view project / view project / view project /</span>
-                    <span>view project / view project / view project /</span>
-                  </div>
+        </section>
+
+        <section
+          className="mx-auto max-w-max-width px-margin-desktop py-32"
+          id="process"
+        >
+          <div className="reveal mb-20 grid grid-cols-1 gap-gutter md:grid-cols-12">
+            <div className="md:col-span-5">
+              <span className="font-label-caps text-label-caps text-muted-teal">
+                METHODOLOGY
+              </span>
+              <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
+                THE ARCHITECTURE OF EFFICIENCY
+              </h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <div
+                className={`reveal reveal-delay-${(index + 1) * 100} relative`}
+                key={step.number}
+              >
+                <div className="absolute -left-4 -top-8 select-none font-headline-xl text-headline-xl text-primary/5">
+                  {step.number}
                 </div>
-                <div className="studio-project-card__body">
-                  <p className="studio-kicker">{project.number}</p>
-                  <h3>{project.name}</h3>
-                  <div>
-                    <span>{project.label}</span>
-                    <span>{project.year}</span>
-                  </div>
+                <div className="relative z-10 border-t border-primary pt-8">
+                  <h4 className="mb-4 font-label-caps text-label-caps">
+                    {step.title.toUpperCase()}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-on-surface-variant">
+                    {step.copy}
+                  </p>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
-        </div>
-      </MotionSection>
+        </section>
 
-      <MotionSection className="studio-service studio-service--ai">
-        <div className="studio-service__grain" aria-hidden="true" />
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-7 lg:grid-cols-[minmax(0,520px)_minmax(320px,1fr)] lg:items-start lg:px-10 lg:py-28">
-          <div className="max-w-[540px] lg:justify-self-end">
-            <p className="studio-kicker mb-5">Process / engagement model</p>
-            <h2 className="studio-section-title">
-              A studio cadence for systems that touch real operations.
-            </h2>
-            <p className="studio-section-copy mt-5 max-w-[35ch]">
-              We begin with the actual operating texture, then design controlled
-              automations that can be observed, adjusted, and trusted before
-              they scale.
-            </p>
-          </div>
-          <div className="studio-process">
-            {process.map((step) => (
-              <article className="studio-process__step" key={step.number}>
-                <span>{step.number}</span>
-                <div>
-                  <p className="studio-process__label">{step.label}</p>
-                  <h3>{step.title}</h3>
-                  <p>{step.copy}</p>
+        <section className="bg-primary py-32 text-on-primary" id="portfolio">
+          <div className="mx-auto max-w-max-width px-margin-desktop">
+            <div className="reveal mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
+              <div>
+                <span className="font-label-caps text-label-caps text-muted-teal">
+                  IMPACT
+                </span>
+                <h2 className="mt-4 font-headline-lg text-headline-lg">
+                  CASE STUDIES
+                </h2>
+              </div>
+              <button
+                className="rounded-DEFAULT border border-on-primary/20 px-8 py-3 font-label-caps text-label-caps text-on-primary transition-colors hover:border-on-primary"
+                type="button"
+              >
+                VIEW ALL RESULTS
+              </button>
+            </div>
+            <div className="grid grid-cols-1 gap-px border border-on-primary/10 bg-on-primary/10 md:grid-cols-2">
+              {caseStudies.map((study) => (
+                <div
+                  className={`reveal ${study.delay} group bg-primary p-12 transition-colors hover:bg-white/[0.02]`}
+                  key={study.title}
+                >
+                  <div className="mb-12">
+                    <span className="mb-4 inline-block rounded-full bg-muted-teal/20 px-3 py-1 font-label-caps text-[10px] text-muted-teal">
+                      {study.industry.toUpperCase()}
+                    </span>
+                    <h3 className="mb-2 font-headline-md text-headline-md">
+                      {study.title}
+                    </h3>
+                    <p className="max-w-sm font-body-md text-on-primary/60">
+                      {study.copy}
+                    </p>
+                  </div>
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-headline-xl text-headline-xl leading-none">
+                      {study.metric}
+                    </span>
+                    <span className="font-label-caps text-label-caps text-on-primary/60">
+                      {study.metricLabel.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="relative mt-12 h-64 overflow-hidden rounded-lg border border-white/5">
+                    <Image
+                      alt={study.alt}
+                      className="h-full w-full object-cover grayscale brightness-75 transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      src={study.image}
+                    />
+                  </div>
                 </div>
-              </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-40">
+          <div className="reveal mx-auto max-w-max-width px-margin-desktop text-center">
+            <h2 className="mb-8 font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
+              Ready to evolve?
+            </h2>
+            <p className="mx-auto mb-16 max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
+              Our team of architects is ready to map your transformation.
+              Schedule a diagnostic audit to see how AI can redefine your
+              operational limits.
+            </p>
+            <div className="flex flex-col justify-center gap-6 md:flex-row">
+              <button
+                className="rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-base text-on-primary tracking-widest transition-all hover:bg-muted-teal"
+                type="button"
+              >
+                FREE AUDIT
+              </button>
+              <button
+                className="rounded-DEFAULT border border-primary px-12 py-5 font-label-caps text-base text-primary tracking-widest transition-all hover:bg-surface-variant"
+                type="button"
+              >
+                CONTACT SALES
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="w-full border-t border-primary/10 bg-surface">
+        <div className="mx-auto flex max-w-max-width flex-col items-center justify-between px-margin-desktop py-12 md:flex-row">
+          <div className="mb-8 font-headline-md text-headline-md text-primary md:mb-0">
+            AETHEREAL
+          </div>
+          <div className="mb-8 flex gap-8 md:mb-0">
+            {["Privacy", "Terms", "LinkedIn", "Contact"].map((item) => (
+              <a
+                className="font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-primary"
+                href="#"
+                key={item}
+              >
+                {item.toUpperCase()}
+              </a>
             ))}
           </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="studio-footer">
-        <div className="studio-service__grain" aria-hidden="true" />
-        <div className="studio-footer__mark" aria-hidden="true" />
-        <div className="studio-footer__inner">
-          <Link href="/contact" className="studio-footer__headline">
-            <h2>
-              <span>Let&apos;s work</span>
-              <span>together</span>
-            </h2>
-          </Link>
-
-          <div className="studio-footer__links" aria-label="Footer navigation">
-            <nav>
-              <Link href="/work">Work</Link>
-              <Link href="/about">About</Link>
-              <Link href="/contact">Contact</Link>
-            </nav>
-            <nav>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Instagram
-              </a>
-            </nav>
-          </div>
-
-          <div className="studio-footer__meta">
-            <p>
-              ©allinhaus. All rights reserved ·{" "}
-              <Link href="/contact">Privacy</Link>
-            </p>
-            <p>
-              Website by <Link href="/">allinhaus</Link>
-            </p>
+          <div className="font-label-caps text-label-caps text-on-surface-variant">
+            © 2024 AETHEREAL AI. ALL RIGHTS RESERVED.
           </div>
         </div>
-      </MotionSection>
-    </main>
+      </footer>
+    </div>
   );
 }
