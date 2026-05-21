@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "./components/Nav";
 import MotionSection from "./components/MotionSection";
+import OperationalAtmosphere from "./components/OperationalAtmosphere";
 import StudioAnimations from "./components/StudioAnimations";
 
 const process = [
@@ -49,7 +50,11 @@ function SplitWords({ text }: { text: string }) {
   return (
     <span className="studio-split" aria-label={text}>
       {text.split(" ").map((word, index) => (
-        <span className="studio-split__mask" aria-hidden="true" key={`${word}-${index}`}>
+        <span
+          className="studio-split__mask"
+          aria-hidden="true"
+          key={`${word}-${index}`}
+        >
           <span className="studio-split__word">{word}</span>
         </span>
       ))}
@@ -84,7 +89,10 @@ export default function HomePage() {
                   decisions into designed systems that feel calm, legible, and
                   ready to operate.
                 </p>
-                <Link href="/contact" className="studio-cta studio-cta--primary">
+                <Link
+                  href="/contact"
+                  className="studio-cta studio-cta--primary"
+                >
                   Start a conversation
                 </Link>
               </div>
@@ -99,48 +107,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <MotionSection className="studio-reel">
-        <div className="studio-reel__stage" aria-hidden="true">
-          <div className="studio-flow studio-flow--intake">
-            <span>intake</span>
-            <strong>classify request</strong>
-          </div>
-          <div className="studio-flow studio-flow--route">
-            <span>routing</span>
-            <strong>assign owner</strong>
-          </div>
-          <div className="studio-flow studio-flow--trace">
-            <span>trace</span>
-            <strong>review output</strong>
-          </div>
-          <div className="studio-node studio-node--one" />
-          <div className="studio-node studio-node--two" />
-          <div className="studio-node studio-node--three" />
-          <div className="studio-orbit studio-orbit--one" />
-          <div className="studio-orbit studio-orbit--two" />
-          <div className="studio-scanline" />
-          <div className="studio-marquee">
-            <span>signal stable / handoff reduced / context ready /</span>
-            <span>signal stable / handoff reduced / context ready /</span>
-          </div>
-        </div>
-        <div className="studio-reel__caption">
-          <p className="studio-kicker">Moving interface / operating atmosphere</p>
-          <p>
-            An operating system should not explain every mechanism. It should
-            make the next move feel directed, precise, and worth trusting.
-          </p>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="studio-manifesto">
-        <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-7 lg:px-10 lg:py-28">
-          <p className="studio-kicker mb-8">Studio position</p>
-          <h2>
-            <SplitWords text="Systems that read the room before they move the work forward." />
-          </h2>
-        </div>
-      </MotionSection>
+      <OperationalAtmosphere />
 
       <MotionSection className="studio-projects" id="work">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(360px,1fr)] lg:px-10 lg:py-28">
@@ -222,18 +189,31 @@ export default function HomePage() {
               <Link href="/contact">Contact</Link>
             </nav>
             <nav>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 LinkedIn
               </a>
-              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Instagram
               </a>
             </nav>
           </div>
 
           <div className="studio-footer__meta">
-            <p>©allinhaus. All rights reserved · <Link href="/contact">Privacy</Link></p>
-            <p>Website by <Link href="/">allinhaus</Link></p>
+            <p>
+              ©allinhaus. All rights reserved ·{" "}
+              <Link href="/contact">Privacy</Link>
+            </p>
+            <p>
+              Website by <Link href="/">allinhaus</Link>
+            </p>
           </div>
         </div>
       </MotionSection>

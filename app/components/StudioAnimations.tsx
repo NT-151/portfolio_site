@@ -51,52 +51,6 @@ export default function StudioAnimations() {
         );
       });
 
-      gsap.to(".studio-reel__stage", {
-        backgroundPosition: "120px 80px",
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".studio-reel",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to(".studio-flow--intake", {
-        y: -70,
-        x: -18,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".studio-reel",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to(".studio-flow--route", {
-        y: 54,
-        x: 22,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".studio-reel",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to(".studio-flow--trace", {
-        y: -40,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".studio-reel",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
       gsap.utils.toArray<HTMLElement>(".studio-project-card").forEach((card, index) => {
         gsap.fromTo(
           card,

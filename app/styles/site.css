@@ -814,196 +814,161 @@ body {
 .studio-reel {
   position: relative;
   overflow: hidden;
-  background: #101112;
+  min-height: clamp(620px, 84vh, 920px);
+  background:
+    linear-gradient(90deg, rgba(16, 17, 18, 0.2), transparent 34%),
+    radial-gradient(ellipse at 78% 34%, rgba(184, 121, 24, 0.16), transparent 34%),
+    linear-gradient(135deg, #0d0f10 0%, #121313 46%, #0b0c0d 100%);
   color: #f8f8f5;
 }
 
-.studio-reel__stage {
-  position: relative;
-  min-height: 72vh;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 72% 30%, rgba(226, 160, 54, 0.22), transparent 18%),
-    radial-gradient(circle at 34% 62%, rgba(120, 143, 154, 0.2), transparent 22%),
-    linear-gradient(120deg, rgba(248, 248, 245, 0.08), transparent 34%),
-    #101112;
-}
-
-.studio-reel__stage::before,
-.studio-reel__stage::after {
+.studio-reel::before,
+.studio-reel::after,
+.studio-reel__grid,
+.studio-reel__light {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.studio-reel__stage::before {
+.studio-reel::before {
+  z-index: 1;
   background-image:
-    linear-gradient(rgba(248, 248, 245, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(248, 248, 245, 0.07) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
-  opacity: 0.26;
+    linear-gradient(rgba(248, 248, 245, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 248, 245, 0.045) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image:
+    linear-gradient(90deg, black 0%, black 56%, transparent 94%),
+    linear-gradient(180deg, transparent 0%, black 18%, black 82%, transparent 100%);
+  opacity: 0.18;
 }
 
-.studio-reel__stage::after {
+.studio-reel::after {
+  z-index: 3;
   background:
-    linear-gradient(180deg, rgba(16, 17, 18, 0.08), rgba(16, 17, 18, 0.46)),
-    linear-gradient(90deg, rgba(16, 17, 18, 0.56), transparent 56%);
+    linear-gradient(180deg, rgba(13, 15, 16, 0.24), transparent 28%, rgba(13, 15, 16, 0.48)),
+    linear-gradient(90deg, rgba(13, 15, 16, 0.88), rgba(13, 15, 16, 0.18) 48%, rgba(13, 15, 16, 0.72));
 }
 
-.studio-reel__caption {
-  position: absolute;
-  left: max(1.25rem, calc((100vw - 1440px) / 2 + 2.5rem));
-  right: 1.25rem;
-  bottom: clamp(2rem, 8vh, 5rem);
+.studio-reel__grid {
   z-index: 2;
+  background-image:
+    linear-gradient(115deg, transparent 0%, transparent 48%, rgba(248, 248, 245, 0.1) 49%, transparent 50%),
+    linear-gradient(rgba(248, 248, 245, 0.032) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 42px;
+  mask-image: linear-gradient(90deg, transparent, black 42%, black 82%, transparent);
+  opacity: 0.34;
+}
+
+.studio-reel__light {
+  z-index: 1;
+  left: auto;
+  right: -18%;
+  width: 72%;
+  background:
+    linear-gradient(112deg, transparent 16%, rgba(226, 160, 54, 0.1) 42%, rgba(248, 248, 245, 0.05) 50%, transparent 70%);
+  filter: blur(10px);
+  transform-origin: center;
+}
+
+.studio-reel__inner {
+  position: relative;
+  z-index: 4;
   display: grid;
-  max-width: 460px;
-  gap: 1.2rem;
+  min-height: clamp(620px, 84vh, 920px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(6rem, 11vh, 8.5rem) 1.25rem clamp(5rem, 9vh, 7.5rem);
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.88fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: center;
 }
 
-.studio-reel__caption .studio-kicker {
-  color: rgba(248, 248, 245, 0.68);
+.studio-reel__copy {
+  display: grid;
+  max-width: 560px;
+  gap: clamp(1.25rem, 2vw, 1.7rem);
 }
 
-.studio-reel__caption p:last-child {
+.studio-reel__copy .studio-kicker {
+  max-width: 34ch;
+  color: rgba(248, 248, 245, 0.62);
+}
+
+.studio-reel__copy h2 {
+  max-width: 9.4ch;
   font-family: var(--font-display);
-  font-size: 2.55rem;
+  font-size: clamp(3.4rem, 6.25vw, 6.6rem);
   font-weight: 500;
-  line-height: 0.98;
+  line-height: 0.91;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
-.studio-flow,
-.studio-node,
-.studio-orbit,
-.studio-scanline,
-.studio-marquee {
-  position: absolute;
-  z-index: 1;
+.studio-reel__copy p:last-child {
+  max-width: 31ch;
+  font-family: var(--font-label);
+  font-size: clamp(0.82rem, 1.1vw, 0.98rem);
+  line-height: 1.85;
+  color: rgba(248, 248, 245, 0.58);
 }
 
-.studio-flow {
-  display: grid;
-  gap: 0.85rem;
-  width: clamp(210px, 25vw, 360px);
-  min-height: 148px;
-  padding: 1.15rem;
-  border: 1px solid rgba(248, 248, 245, 0.2);
-  background:
-    linear-gradient(180deg, rgba(248, 248, 245, 0.1), rgba(248, 248, 245, 0.03)),
-    rgba(16, 17, 18, 0.42);
-  box-shadow:
-    inset 0 0 34px rgba(226, 160, 54, 0.06),
-    0 28px 90px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(10px);
+.studio-reel__system {
+  position: relative;
+  min-height: clamp(380px, 54vh, 620px);
+  isolation: isolate;
 }
 
-.studio-flow::after {
+.studio-reel__system::before {
   content: "";
   position: absolute;
-  inset: auto 1.15rem 1.15rem 1.15rem;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(226, 160, 54, 0.7), transparent);
-  transform-origin: left;
+  inset: 17% 3% 12% 15%;
+  z-index: -1;
+  background:
+    linear-gradient(130deg, transparent 24%, rgba(226, 160, 54, 0.16) 48%, transparent 69%);
+  filter: blur(24px);
+  opacity: 0.66;
 }
 
-.studio-flow span,
-.studio-marquee {
-  font-family: var(--font-label);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(248, 248, 245, 0.54);
+.studio-reel__system::after {
+  content: "";
+  position: absolute;
+  inset: 13% 8% 18% 8%;
+  z-index: -2;
+  border-top: 1px solid rgba(248, 248, 245, 0.12);
+  border-right: 1px solid rgba(248, 248, 245, 0.08);
+  transform: skewY(-9deg);
+  opacity: 0.7;
 }
 
-.studio-flow strong {
-  max-width: 9ch;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 4.2rem);
-  font-weight: 500;
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-
-.studio-flow--intake {
-  left: 54%;
-  top: 13%;
-}
-
-.studio-flow--route {
-  right: 8%;
-  top: 22%;
-}
-
-.studio-flow--trace {
-  left: 47%;
-  bottom: 12%;
-}
-
-.studio-node {
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: #e2a036;
-  box-shadow:
-    0 0 0 12px rgba(226, 160, 54, 0.12),
-    0 0 42px rgba(226, 160, 54, 0.6);
-}
-
-.studio-node--one {
-  left: 45%;
-  top: 32%;
-}
-
-.studio-node--two {
-  right: 29%;
-  top: 56%;
-}
-
-.studio-node--three {
-  left: 39%;
-  bottom: 24%;
-}
-
-.studio-orbit {
-  width: min(40vw, 520px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(248, 248, 245, 0.13);
-  border-radius: 999px;
-  opacity: 0.68;
-}
-
-.studio-orbit--one {
-  right: 12%;
-  top: 6%;
-}
-
-.studio-orbit--two {
-  left: 18%;
-  bottom: 5%;
-  width: min(32vw, 420px);
-}
-
-.studio-scanline {
+.studio-system__drawing {
+  position: absolute;
   inset: 0;
-  z-index: 2;
-  height: 16%;
-  background: linear-gradient(180deg, transparent, rgba(226, 160, 54, 0.12), transparent);
-  mix-blend-mode: screen;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.studio-marquee {
-  left: 0;
-  right: 0;
-  bottom: 1.2rem;
-  z-index: 3;
-  display: flex;
-  gap: 2rem;
-  white-space: nowrap;
+.studio-system__label {
+  position: absolute;
+  z-index: 2;
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(248, 248, 245, 0.46);
+}
+
+.studio-system__label--north {
+  top: 18%;
+  right: 15%;
+}
+
+.studio-system__label--south {
+  left: 17%;
+  bottom: 18%;
 }
 
 .studio-manifesto {
@@ -1227,38 +1192,6 @@ body {
     animation: sweep 14s ease-in-out infinite alternate;
   }
 
-  .studio-flow {
-    animation: panelFloat 8s ease-in-out infinite alternate;
-  }
-
-  .studio-flow--route {
-    animation-delay: -2s;
-  }
-
-  .studio-flow--trace {
-    animation-delay: -4s;
-  }
-
-  .studio-flow::after {
-    animation: dataLine 2.8s ease-in-out infinite;
-  }
-
-  .studio-node {
-    animation: nodePulse 2.8s ease-in-out infinite;
-  }
-
-  .studio-orbit {
-    animation: orbitDrift 18s linear infinite;
-  }
-
-  .studio-scanline {
-    animation: scanline 5s ease-in-out infinite;
-  }
-
-  .studio-marquee {
-    animation: marqueeSlide 18s linear infinite;
-  }
-
   .studio-project-card__marquee {
     animation: marqueeSlide 20s linear infinite;
   }
@@ -1306,29 +1239,6 @@ body {
   }
 }
 
-@keyframes panelFloat {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-18px);
-  }
-}
-
-@keyframes dataLine {
-  0%,
-  100% {
-    transform: scaleX(0.18);
-    opacity: 0.42;
-  }
-
-  50% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-}
-
 @keyframes nodePulse {
   0%,
   100% {
@@ -1339,33 +1249,6 @@ body {
   50% {
     transform: scale(1.18);
     opacity: 1;
-  }
-}
-
-@keyframes orbitDrift {
-  from {
-    transform: rotate(0deg) translateX(0);
-  }
-
-  to {
-    transform: rotate(360deg) translateX(8px);
-  }
-}
-
-@keyframes scanline {
-  from {
-    transform: translateY(-20%);
-    opacity: 0;
-  }
-
-  35%,
-  70% {
-    opacity: 0.9;
-  }
-
-  to {
-    transform: translateY(640%);
-    opacity: 0;
   }
 }
 
@@ -1424,64 +1307,32 @@ body {
     max-width: none;
   }
 
-  .studio-reel__stage {
-    min-height: 430px;
+  .studio-reel,
+  .studio-reel__inner {
+    min-height: auto;
   }
 
-  .studio-reel__caption {
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: auto;
+  .studio-reel__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 5rem 1.25rem 4.5rem;
+  }
+
+  .studio-reel__copy {
     max-width: none;
-    padding: 1.25rem 1.25rem 2.5rem;
   }
 
-  .studio-reel__caption p:last-child {
-    font-size: 2rem;
+  .studio-reel__copy h2 {
+    max-width: 9.8ch;
+    font-size: 3.15rem;
   }
 
-  .studio-flow {
-    width: 190px;
-    min-height: 120px;
+  .studio-reel__system {
+    min-height: 310px;
   }
 
-  .studio-flow strong {
-    font-size: 1.75rem;
-  }
-
-  .studio-flow--intake {
-    left: 8%;
-    top: 10%;
-  }
-
-  .studio-flow--route {
-    right: 6%;
-    top: 25%;
-  }
-
-  .studio-flow--trace {
-    left: 20%;
-    bottom: 10%;
-  }
-
-  .studio-node--one {
-    left: 62%;
-    top: 18%;
-  }
-
-  .studio-node--two {
-    right: 18%;
-    top: 60%;
-  }
-
-  .studio-node--three {
-    left: 16%;
-    bottom: 35%;
-  }
-
-  .studio-orbit {
-    width: 280px;
+  .studio-system__label {
+    font-size: 0.58rem;
   }
 
   .studio-manifesto h2 {
