@@ -67,19 +67,32 @@ const workflowSteps = [
 ];
 
 const proofPoints = [
-  "Built around a real clinic owner workflow for Dr Fiori Clinic",
+  "Built around real clinic owner workflows, not generic AI demos",
   "Designed for social enquiries, consultations, treatment notes, and finance admin",
   "Keeps final patient communication and clinical review with the clinic team",
 ];
 
+const workHighlights = [
+  {
+    label: "Inbox Hub",
+    title: "One place for social and email enquiries",
+    copy: "Messages are pulled into a single queue so booking intent, treatment questions, and follow-ups stop getting split across apps.",
+  },
+  {
+    label: "Clinical Notes",
+    title: "Consultations become treatment-ready records",
+    copy: "Transcript summaries capture goals, contraindications, products, aftercare, and export-ready notes for clinic systems.",
+  },
+  {
+    label: "Admin Loop",
+    title: "Tasks and invoices move without chasing",
+    copy: "Conversation context creates next actions, while Dropbox invoice handling keeps finance admin from piling up.",
+  },
+];
+
 function MenuIcon() {
   return (
-    <svg
-      aria-hidden="true"
-      className="h-6 w-6"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
+    <svg aria-hidden="true" className="h-6 w-6" fill="none" viewBox="0 0 24 24">
       <path
         d="M4 7h16M4 12h16M4 17h16"
         stroke="currentColor"
@@ -108,7 +121,12 @@ function ServiceIcon({ name }: { name: string }) {
           strokeLinejoin="round"
           strokeWidth="2"
         />
-        <path d="M14 15h12M14 19h8" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+        <path
+          d="M14 15h12M14 19h8"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="2"
+        />
       </svg>
     );
   }
@@ -136,7 +154,12 @@ function ServiceIcon({ name }: { name: string }) {
           strokeLinejoin="round"
           strokeWidth="2"
         />
-        <path d="M24 7v7h6M16 19h10M16 24h10M16 29h7" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+        <path
+          d="M24 7v7h6M16 19h10M16 24h10M16 29h7"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="2"
+        />
       </svg>
     );
   }
@@ -164,7 +187,12 @@ function ServiceIcon({ name }: { name: string }) {
           strokeLinejoin="round"
           strokeWidth="2"
         />
-        <path d="M16 14h8M16 20h8M16 26h5" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+        <path
+          d="M16 14h8M16 20h8M16 26h5"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="2"
+        />
       </svg>
     );
   }
@@ -177,16 +205,25 @@ function ServiceIcon({ name }: { name: string }) {
         strokeLinejoin="round"
         strokeWidth="2"
       />
-      <path d="m9 12 11 9 11-9" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path
+        d="m9 12 11 9 11-9"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
     </svg>
   );
 }
 
 function ClinicOperationsVisual() {
   return (
-    <div className="clinic-visual" aria-label="Clinic AI operations dashboard preview">
+    <div
+      className="clinic-visual"
+      aria-label="Clinic AI operations dashboard preview"
+    >
       <div className="clinic-visual__header">
-        <span>Dr Fiori Clinic</span>
+        <span>Private aesthetics clinic</span>
         <span>Live queue</span>
       </div>
       <div className="clinic-visual__grid">
@@ -210,8 +247,8 @@ function ClinicOperationsVisual() {
         <div className="clinic-visual__panel">
           <div className="clinic-visual__label">AI draft</div>
           <p>
-            Confirm suitability, offer booking slots, include aftercare note, and
-            keep medical claims cautious.
+            Confirm suitability, offer booking slots, include aftercare note,
+            and keep medical claims cautious.
           </p>
         </div>
         <div className="clinic-visual__panel">
@@ -273,7 +310,7 @@ export default function HomePage() {
             </a>
             <a
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
-              href="#case-study"
+              href="#work"
             >
               WORK
             </a>
@@ -287,7 +324,7 @@ export default function HomePage() {
               className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-white transition-all hover:opacity-80"
               href="/contact"
             >
-              BOOK A CLINIC AUDIT
+              GET IN TOUCH
             </Link>
           </div>
           <button className="text-primary md:hidden" type="button">
@@ -309,21 +346,21 @@ export default function HomePage() {
               </h1>
               <p className="mb-10 max-w-xl font-body-lg text-body-lg text-on-surface-variant">
                 I build AI systems for aesthetic clinics that turn scattered
-                enquiries, consultation transcripts, clinical notes, and invoices
-                into one organised operating workflow.
+                enquiries, consultation transcripts, clinical notes, and
+                invoices into one organised operating workflow.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   className="w-full rounded-DEFAULT bg-primary px-8 py-4 text-center font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-auto"
                   href="/contact"
                 >
-                  BOOK A CLINIC AUDIT
+                  CONTACT US
                 </Link>
                 <a
                   className="w-full rounded-DEFAULT border border-primary px-8 py-4 text-center font-label-caps text-label-caps text-primary transition-colors hover:bg-surface-variant md:w-auto"
-                  href="#case-study"
+                  href="#work"
                 >
-                  SEE DR FIORI WORK
+                  SEE SELECTED WORK
                 </a>
               </div>
             </div>
@@ -348,35 +385,44 @@ export default function HomePage() {
 
         <section
           className="mx-auto max-w-max-width px-margin-desktop py-28"
-          id="case-study"
+          id="work"
         >
           <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
             <div className="reveal md:col-span-5">
               <span className="font-label-caps text-label-caps text-muted-teal">
-                FEATURED WORK
+                SELECTED WORK
               </span>
               <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
-                Dr Fiori Clinic operating system
+                A clinic operating system, anonymised.
               </h2>
             </div>
             <div className="reveal reveal-delay-100 md:col-span-6 md:col-start-7">
               <p className="mb-8 font-body-lg text-body-lg text-on-surface-variant">
                 Clinic owners lose time in the gap between patient demand and
-                operational follow-through. The Dr Fiori Clinic build connects
+                operational follow-through. I have built systems that connect
                 inbound messages, AI-assisted replies, task creation, clinical
-                note summaries, exportable logs, and Dropbox invoice handling.
+                note summaries, exportable logs, and Dropbox invoice handling
+                without exposing the clinic publicly.
               </p>
-              <div className="grid gap-px border border-primary/10 bg-primary/10 md:grid-cols-2">
-                {[
-                  "One queue for social and email conversations",
-                  "Draft replies written from patient context",
-                  "To-dos generated from live conversations",
-                  "Consultation transcripts converted into treatment notes",
-                ].map((item) => (
-                  <div className="bg-background p-6" key={item}>
-                    <p className="font-label-md text-label-md text-primary">
-                      {item}
-                    </p>
+              <div className="grid gap-px border border-primary/10 bg-primary/10">
+                {workHighlights.map((item) => (
+                  <div
+                    className="grid gap-5 bg-background p-6 md:grid-cols-[160px_1fr]"
+                    key={item.title}
+                  >
+                    <div>
+                      <span className="font-label-caps text-label-caps text-muted-teal">
+                        {item.label.toUpperCase()}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="mb-2 font-headline-md text-headline-md text-primary">
+                        {item.title}
+                      </h3>
+                      <p className="font-body-md text-body-md text-on-surface-variant">
+                        {item.copy}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -434,8 +480,8 @@ export default function HomePage() {
             </div>
             <p className="font-body-lg text-body-lg text-on-surface-variant md:col-span-6 md:col-start-7">
               The goal is a dependable clinic workflow: less inbox switching,
-              less transcript retyping, less invoice sorting, and clearer handoff
-              between owner, practitioner, and admin.
+              less transcript retyping, less invoice sorting, and clearer
+              handoff between owner, practitioner, and admin.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
@@ -511,7 +557,7 @@ export default function HomePage() {
                 className="w-full rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-base text-on-primary transition-all hover:bg-muted-teal md:w-auto"
                 href="/contact"
               >
-                BOOK A CLINIC AUDIT
+                CONTACT US
               </Link>
               <a
                 className="w-full rounded-DEFAULT border border-primary px-12 py-5 font-label-caps text-base text-primary transition-all hover:bg-surface-variant md:w-auto"

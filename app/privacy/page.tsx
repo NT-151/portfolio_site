@@ -102,7 +102,7 @@ export default function PrivacyPage() {
             </Link>
             <Link
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
-              href="/#case-study"
+              href="/#work"
             >
               WORK
             </Link>
