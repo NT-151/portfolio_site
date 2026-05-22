@@ -7,87 +7,101 @@ import EditorialFooter from "./components/EditorialFooter";
 const services = [
   {
     icon: "inbox",
-    title: "Unified Clinic Inbox",
-    copy: "Instagram, Facebook, email, and enquiry messages in one queue, with the patient context a clinic owner needs before replying.",
-    outcome: "Fewer missed leads",
-  },
-  {
-    icon: "reply",
-    title: "LLM Reply Drafts",
-    copy: "A drafting layer that turns messy inbound messages into clinic-safe replies for bookings, follow-ups, FAQs, and treatment questions.",
-    outcome: "Replies in minutes",
-  },
-  {
-    icon: "tasks",
-    title: "Action Lists From Conversations",
-    copy: "Patient conversations become clear next actions, so the team can book, chase, prep, invoice, or hand over without rereading threads.",
-    outcome: "No manual triage",
+    title: "Unified Inbox",
+    copy: "Bring Instagram, WhatsApp, email, and client communication into one operational workspace. AI-assisted drafting helps staff respond faster while maintaining clinic tone and consistency.",
+    outcome: "Shorter response times",
   },
   {
     icon: "notes",
-    title: "Beauty Treatment Notes",
-    copy: "Consultation transcripts become structured clinical notes tailored to aesthetics, skin, injectable, and treatment-plan workflows.",
-    outcome: "Cleaner records",
-  },
-  {
-    icon: "export",
-    title: "Pabau-Ready Exports",
-    copy: "Notes and logs are formatted for export, giving clinics a practical route into Pabau or a clean archive when direct sync is not needed.",
-    outcome: "Less admin copy-paste",
+    title: "Clinical Notes Automation",
+    copy: "Generate structured treatment notes and consultation summaries from transcripts tailored specifically for aesthetic treatments.",
+    outcome: "Consistent documentation",
   },
   {
     icon: "invoice",
-    title: "Dropbox Invoice Automator",
-    copy: "Invoice files are detected, sorted, renamed, and prepared from Dropbox so finance admin stops living in downloads folders.",
-    outcome: "Accounts stay current",
+    title: "Invoice Automation",
+    copy: "Automatically process and organise invoices linked to your existing storage workflows, reducing manual filing and financial admin.",
+    outcome: "Less paperwork",
+  },
+  {
+    icon: "tasks",
+    title: "Task & Workflow Automation",
+    copy: "Convert conversations and operational events into actionable tasks so follow-ups, approvals, and admin keep moving.",
+    outcome: "Fewer missed actions",
+  },
+  {
+    icon: "export",
+    title: "Structured Exports",
+    copy: "Export records into clinic systems or structured documents so information moves cleanly between the tools your team already uses.",
+    outcome: "Cleaner records",
+  },
+  {
+    icon: "reply",
+    title: "Client Communication Drafts",
+    copy: "Draft replies for enquiries, aftercare questions, appointment admin, and follow-ups while keeping review with the clinic team.",
+    outcome: "Less inbox pressure",
   },
 ];
 
 const workflowSteps = [
   {
     number: "01",
-    title: "Map the clinic day",
-    copy: "I identify where patient enquiries, treatment notes, invoices, and follow-ups currently slow the owner and team down.",
+    title: "Review the workflow",
+    copy: "We review how your clinic currently handles messages, notes, invoicing, records, and follow-up admin.",
   },
   {
     number: "02",
-    title: "Build around existing tools",
-    copy: "The automation fits the platforms already in use, including social channels, email, Dropbox, and export paths for Pabau.",
+    title: "Find the repetitive load",
+    copy: "We identify the admin that repeats every week and creates delays, backlog, or staff pressure.",
   },
   {
     number: "03",
-    title: "Add AI where judgement helps",
-    copy: "LLMs draft, summarise, classify, and structure information while keeping human review in the parts that affect patients.",
+    title: "Build around the clinic",
+    copy: "The system fits the workflows and tools already in place instead of forcing a full operational reset.",
   },
   {
     number: "04",
-    title: "Harden the handover",
-    copy: "The finished system includes clear queues, repeatable exports, and workflows the clinic can run without technical support.",
+    title: "Support the handover",
+    copy: "Staff get clear queues, draft outputs, structured records, and task flows they can review and act on.",
   },
-];
-
-const proofPoints = [
-  "Built around real clinic owner workflows, not generic AI demos",
-  "Designed for social enquiries, consultations, treatment notes, and finance admin",
-  "Keeps final patient communication and clinical review with the clinic team",
 ];
 
 const workHighlights = [
   {
-    label: "Inbox Hub",
-    title: "One place for social and email enquiries",
-    copy: "Messages are pulled into a single queue so booking intent, treatment questions, and follow-ups stop getting split across apps.",
+    label: "Communication",
+    title: "Inbox pressure reduced",
+    copy: "Client messages, enquiries, and follow-ups can be organised into a single operational view with AI-assisted drafting.",
   },
   {
-    label: "Clinical Notes",
-    title: "Consultations become treatment-ready records",
-    copy: "Transcript summaries capture goals, contraindications, products, aftercare, and export-ready notes for clinic systems.",
+    label: "Documentation",
+    title: "Notes made more consistent",
+    copy: "Consultation transcripts can become structured treatment notes, summaries, and export-ready records.",
   },
   {
-    label: "Admin Loop",
-    title: "Tasks and invoices move without chasing",
-    copy: "Conversation context creates next actions, while Dropbox invoice handling keeps finance admin from piling up.",
+    label: "Administration",
+    title: "Invoices and tasks kept moving",
+    copy: "Invoice files, approvals, follow-ups, and operational actions can be routed without relying on memory or late-night catch-up.",
   },
+];
+
+const adminCosts = [
+  "slower response times",
+  "missed enquiries",
+  "inconsistent records",
+  "delayed invoices",
+  "staff overload",
+  "reduced treatment capacity",
+  "less time spent with clients",
+];
+
+const transformationPoints = [
+  "More time for treatments",
+  "Faster client communication",
+  "Less backlog after clinic hours",
+  "Reduced staff fatigue",
+  "Cleaner operational processes",
+  "More consistent documentation",
+  "Better use of skilled staff time",
 ];
 
 function MenuIcon() {
@@ -223,8 +237,8 @@ function ClinicOperationsVisual() {
       aria-label="Clinic AI operations dashboard preview"
     >
       <div className="clinic-visual__header">
-        <span>Private aesthetics clinic</span>
-        <span>Live queue</span>
+        <span>Aesthetic clinic operations</span>
+        <span>Live workspace</span>
       </div>
       <div className="clinic-visual__grid">
         <div className="clinic-visual__panel clinic-visual__panel--wide">
@@ -233,7 +247,7 @@ function ClinicOperationsVisual() {
             <span className="clinic-dot" />
             <div>
               <strong>Instagram enquiry</strong>
-              <p>Anti-wrinkle consultation request</p>
+              <p>Consultation request waiting for response</p>
             </div>
           </div>
           <div className="clinic-message">
@@ -248,22 +262,22 @@ function ClinicOperationsVisual() {
           <div className="clinic-visual__label">AI draft</div>
           <p>
             Confirm suitability, offer booking slots, include aftercare note,
-            and keep medical claims cautious.
+            and keep final review with the clinic team.
           </p>
         </div>
         <div className="clinic-visual__panel">
           <div className="clinic-visual__label">Next actions</div>
           <ul>
             <li>Book patch test</li>
-            <li>Prepare consent form</li>
+            <li>Prepare consent record</li>
             <li>Send deposit invoice</li>
           </ul>
         </div>
         <div className="clinic-visual__panel clinic-visual__panel--wide">
           <div className="clinic-visual__label">Clinical note summary</div>
           <p>
-            Treatment goals, contraindications discussed, product areas, dosage
-            notes, aftercare advice, and export-ready record.
+            Treatment goals, contraindications discussed, treatment areas,
+            aftercare advice, and export-ready record.
           </p>
         </div>
       </div>
@@ -292,7 +306,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="font-body-md text-body-md bg-background text-on-surface">
+    <div className="overflow-x-hidden font-body-md text-body-md bg-background text-on-surface">
       <header className="sticky top-0 z-50 w-full border-b border-primary/10 bg-surface">
         <nav className="mx-auto flex h-20 max-w-max-width items-center justify-between px-margin-desktop">
           <Link
@@ -304,7 +318,7 @@ export default function HomePage() {
           <div className="hidden items-center gap-10 md:flex">
             <a
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
-              href="#services"
+              href="#systems"
             >
               SERVICES
             </a>
@@ -324,7 +338,7 @@ export default function HomePage() {
               className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-white transition-all hover:opacity-80"
               href="/contact"
             >
-              GET IN TOUCH
+              BOOK A WORKFLOW REVIEW
             </Link>
           </div>
           <button className="text-primary md:hidden" type="button">
@@ -341,26 +355,25 @@ export default function HomePage() {
                 AI AUTOMATION FOR BEAUTY CLINICS
               </span>
               <h1 className="mb-8 mt-5 max-w-4xl font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
-                More bookings and cleaner admin without hiring another
-                coordinator.
+                Admin is consuming your clinic.
               </h1>
               <p className="mb-10 max-w-xl font-body-lg text-body-lg text-on-surface-variant">
-                I build AI systems for aesthetic clinics that turn scattered
-                enquiries, consultation transcripts, clinical notes, and
-                invoices into one organised operating workflow.
+                Automate the repetitive work behind consultations, messages,
+                notes, invoices, and follow-ups so your team gets time back
+                every week.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   className="w-full rounded-DEFAULT bg-primary px-8 py-4 text-center font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-auto"
                   href="/contact"
                 >
-                  CONTACT US
+                  BOOK A WORKFLOW REVIEW
                 </Link>
                 <a
                   className="w-full rounded-DEFAULT border border-primary px-8 py-4 text-center font-label-caps text-label-caps text-primary transition-colors hover:bg-surface-variant md:w-auto"
-                  href="#work"
+                  href="#systems"
                 >
-                  SEE SELECTED WORK
+                  SEE THE SYSTEMS
                 </a>
               </div>
             </div>
@@ -370,61 +383,77 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-y border-primary/5 bg-white py-14">
-          <div className="mx-auto grid max-w-max-width gap-6 px-margin-desktop md:grid-cols-3">
-            {proofPoints.map((point) => (
-              <p
-                className="border-l border-muted-teal pl-5 font-label-md text-label-md text-on-surface-variant"
-                key={point}
-              >
-                {point}
+        <section className="border-y border-primary/5 bg-white py-20">
+          <div className="mx-auto grid max-w-max-width gap-12 px-margin-desktop md:grid-cols-12">
+            <div className="reveal md:col-span-5">
+              <span className="font-label-caps text-label-caps text-muted-teal">
+                THE PROBLEM
+              </span>
+              <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
+                The work behind the treatments is overwhelming the business.
+              </h2>
+            </div>
+            <div className="reveal reveal-delay-100 space-y-6 font-body-lg text-body-lg text-on-surface-variant md:col-span-6 md:col-start-7">
+              <p>
+                Aesthetic clinics run on constant operational activity:
+                Instagram DMs, WhatsApp messages, consultation notes,
+                follow-ups, invoice processing, consent records, lot tracking,
+                patient communication, and appointment administration.
               </p>
-            ))}
+              <p>
+                Most clinics manage this across disconnected apps, manual
+                exports, spreadsheets, inboxes, and late-night catch-up work
+                after treatments finish. As clinics grow, the admin grows
+                faster.
+              </p>
+              <p>
+                Owners end up spending hours every week on repetitive tasks
+                that do not generate revenue directly, yet still need to be done
+                accurately.
+              </p>
+            </div>
+            <div className="reveal reveal-delay-200 grid gap-px border border-primary/10 bg-primary/10 md:col-span-12 md:grid-cols-7">
+              {adminCosts.map((cost) => (
+                <div className="bg-white p-5" key={cost}>
+                  <p className="font-label-md text-label-md text-primary">
+                    {cost}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         <section
           className="mx-auto max-w-max-width px-margin-desktop py-28"
-          id="work"
+          id="services"
         >
           <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
             <div className="reveal md:col-span-5">
               <span className="font-label-caps text-label-caps text-muted-teal">
-                SELECTED WORK
+                THE SOLUTION
               </span>
               <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
-                A clinic operating system, anonymised.
+                Automate the operational load without changing how your clinic
+                works.
               </h2>
             </div>
             <div className="reveal reveal-delay-100 md:col-span-6 md:col-start-7">
-              <p className="mb-8 font-body-lg text-body-lg text-on-surface-variant">
-                Clinic owners lose time in the gap between patient demand and
-                operational follow-through. I have built systems that connect
-                inbound messages, AI-assisted replies, task creation, clinical
-                note summaries, exportable logs, and Dropbox invoice handling
-                without exposing the clinic publicly.
-              </p>
-              <div className="grid gap-px border border-primary/10 bg-primary/10">
-                {workHighlights.map((item) => (
-                  <div
-                    className="grid gap-5 bg-background p-6 md:grid-cols-[160px_1fr]"
-                    key={item.title}
-                  >
-                    <div>
-                      <span className="font-label-caps text-label-caps text-muted-teal">
-                        {item.label.toUpperCase()}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="mb-2 font-headline-md text-headline-md text-primary">
-                        {item.title}
-                      </h3>
-                      <p className="font-body-md text-body-md text-on-surface-variant">
-                        {item.copy}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <div className="space-y-6 font-body-lg text-body-lg text-on-surface-variant">
+                <p>
+                  We build AI-supported systems around the workflows clinics
+                  already use.
+                </p>
+                <p>
+                  Instead of forcing teams into entirely new processes, we
+                  automate the repetitive tasks happening inside communication,
+                  documentation, and administration.
+                </p>
+                <p>
+                  The result is faster operations, cleaner records, reduced
+                  manual work, and more time available for client care and
+                  growth.
+                </p>
               </div>
             </div>
           </div>
@@ -432,15 +461,15 @@ export default function HomePage() {
 
         <section
           className="border-y border-primary/5 bg-white py-24"
-          id="services"
+          id="systems"
         >
           <div className="mx-auto max-w-max-width px-margin-desktop">
             <div className="reveal mb-16">
               <span className="font-label-caps text-label-caps text-muted-teal">
-                WHAT I BUILD
+                CLINIC AUTOMATIONS
               </span>
               <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
-                Automation that follows the clinic workflow.
+                Systems for inboxes, notes, invoices, and operational workflow.
               </h2>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -467,38 +496,47 @@ export default function HomePage() {
 
         <section
           className="mx-auto max-w-max-width px-margin-desktop py-32"
-          id="process"
+          id="work"
         >
           <div className="reveal mb-20 grid grid-cols-1 gap-gutter md:grid-cols-12">
             <div className="md:col-span-5">
               <span className="font-label-caps text-label-caps text-muted-teal">
-                HOW IT WORKS
+                WORK
               </span>
               <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
-                Practical automation, not a loose AI demo.
+                Built inside a real clinic environment.
               </h2>
             </div>
-            <p className="font-body-lg text-body-lg text-on-surface-variant md:col-span-6 md:col-start-7">
-              The goal is a dependable clinic workflow: less inbox switching,
-              less transcript retyping, less invoice sorting, and clearer
-              handoff between owner, practitioner, and admin.
-            </p>
+            <div className="space-y-6 font-body-lg text-body-lg text-on-surface-variant md:col-span-6 md:col-start-7">
+              <p>
+                These systems were developed through operational work inside an
+                aesthetic clinic and shaped around the day-to-day realities of
+                clinic administration.
+              </p>
+              <p>
+                The focus was reducing repetitive operational work that consumed
+                staff time every week: inbox handling, clinical documentation,
+                invoice organisation, records, follow-ups, and task handovers.
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-            {workflowSteps.map((step, index) => (
+          <div className="grid gap-px border border-primary/10 bg-primary/10">
+            {workHighlights.map((item) => (
               <div
-                className={`reveal reveal-delay-${(index + 1) * 100} relative`}
-                key={step.number}
+                className="grid gap-5 bg-background p-6 md:grid-cols-[180px_1fr]"
+                key={item.title}
               >
-                <div className="absolute -left-4 -top-8 select-none font-headline-xl text-headline-xl text-primary/5">
-                  {step.number}
+                <div>
+                  <span className="font-label-caps text-label-caps text-muted-teal">
+                    {item.label.toUpperCase()}
+                  </span>
                 </div>
-                <div className="relative z-10 border-t border-primary pt-8">
-                  <h4 className="mb-4 font-label-caps text-label-caps">
-                    {step.title.toUpperCase()}
-                  </h4>
-                  <p className="text-sm leading-relaxed text-on-surface-variant">
-                    {step.copy}
+                <div>
+                  <h3 className="mb-2 font-headline-md text-headline-md text-primary">
+                    {item.title}
+                  </h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    {item.copy}
                   </p>
                 </div>
               </div>
@@ -506,36 +544,63 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-primary py-28 text-on-primary" id="portfolio">
+        <section className="bg-primary py-28 text-on-primary" id="transformation">
           <div className="mx-auto max-w-max-width px-margin-desktop">
             <div className="reveal mb-16 max-w-3xl">
               <span className="font-label-caps text-label-caps text-muted-teal">
-                VALUE
+                TRANSFORMATION
               </span>
               <h2 className="mt-4 font-headline-lg text-headline-lg">
-                Built for the admin-heavy parts of aesthetic medicine.
+                What clinics gain when admin pressure decreases.
               </h2>
             </div>
-            <div className="grid gap-px border border-on-primary/10 bg-on-primary/10 md:grid-cols-3">
-              {[
-                {
-                  title: "Capture demand",
-                  copy: "Keep social and email leads visible, sorted, and ready for a fast clinic-approved response.",
-                },
-                {
-                  title: "Protect clinical time",
-                  copy: "Convert consultations into structured notes so practitioners spend less time rewriting the same details.",
-                },
-                {
-                  title: "Close the admin loop",
-                  copy: "Create tasks and invoice workflows from real activity instead of waiting for someone to remember.",
-                },
-              ].map((item) => (
-                <div className="bg-primary p-10" key={item.title}>
-                  <h3 className="mb-4 font-headline-md text-headline-md">
-                    {item.title}
-                  </h3>
-                  <p className="font-body-md text-on-primary/65">{item.copy}</p>
+            <div className="grid gap-px border border-on-primary/10 bg-on-primary/10 md:grid-cols-7">
+              {transformationPoints.map((point) => (
+                <div className="bg-primary p-6" key={point}>
+                  <p className="font-label-md text-label-md text-on-primary">
+                    {point}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="reveal mt-12 max-w-2xl font-body-lg text-body-lg text-on-primary/70">
+              The goal is not replacing people. The goal is removing the
+              repetitive work that prevents clinics from operating efficiently.
+            </p>
+          </div>
+        </section>
+
+        <section
+          className="mx-auto max-w-max-width px-margin-desktop py-32"
+          id="process"
+        >
+          <div className="grid gap-16 md:grid-cols-12">
+            <div className="reveal md:col-span-5">
+              <span className="font-label-caps text-label-caps text-muted-teal">
+                HOW IT WORKS
+              </span>
+              <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
+                Your clinic already has the workflows. Now it needs systems that
+                can support them.
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-12 md:col-span-7 md:grid-cols-2">
+              {workflowSteps.map((step, index) => (
+                <div
+                  className={`reveal reveal-delay-${(index + 1) * 100} relative`}
+                  key={step.number}
+                >
+                  <div className="absolute -left-4 -top-8 select-none font-headline-xl text-headline-xl text-primary/5">
+                    {step.number}
+                  </div>
+                  <div className="relative z-10 border-t border-primary pt-8">
+                    <h4 className="mb-4 font-label-caps text-label-caps">
+                      {step.title.toUpperCase()}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-on-surface-variant">
+                      {step.copy}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -545,25 +610,25 @@ export default function HomePage() {
         <section className="bg-white py-32">
           <div className="reveal mx-auto max-w-max-width px-margin-desktop text-center">
             <h2 className="mb-8 font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
-              Want this inside your clinic?
+              Book a workflow review.
             </h2>
             <p className="mx-auto mb-14 max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
-              I will map your inboxes, note-taking, patient follow-up, and
-              invoice flow, then show where automation can remove admin without
-              taking clinical control away from your team.
+              We review how your clinic currently handles communication, notes,
+              invoicing, and operational admin, then identify where automation
+              can immediately reduce workload and save time.
             </p>
             <div className="flex flex-col justify-center gap-6 md:flex-row">
               <Link
                 className="w-full rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-base text-on-primary transition-all hover:bg-muted-teal md:w-auto"
                 href="/contact"
               >
-                CONTACT US
+                BOOK A WORKFLOW REVIEW
               </Link>
               <a
                 className="w-full rounded-DEFAULT border border-primary px-12 py-5 font-label-caps text-base text-primary transition-all hover:bg-surface-variant md:w-auto"
-                href="#services"
+                href="#systems"
               >
-                REVIEW THE SYSTEMS
+                VIEW CLINIC AUTOMATIONS
               </a>
             </div>
           </div>

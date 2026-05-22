@@ -96,7 +96,7 @@ export default function PrivacyPage() {
           <div className="hidden items-center gap-10 md:flex">
             <Link
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
-              href="/#services"
+              href="/#systems"
             >
               SERVICES
             </Link>

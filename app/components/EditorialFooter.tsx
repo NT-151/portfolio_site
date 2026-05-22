@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const primaryLinks = [
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/#systems" },
   { label: "Process", href: "/#process" },
   { label: "Work", href: "/#work" },
   { label: "Contact", href: "/contact" },
@@ -33,7 +33,7 @@ export default function EditorialFooter() {
                 className="rounded-full bg-muted-teal px-8 py-5 font-headline-md text-[18px] font-medium leading-none text-primary transition-colors hover:bg-secondary-fixed-dim md:px-10"
                 href="/contact"
               >
-                GET IN TOUCH
+                BOOK REVIEW
               </Link>
             </div>
             <h2 className="self-start font-headline-xl text-[48px] font-bold leading-none md:self-center md:pl-[34%] md:text-[96px]">

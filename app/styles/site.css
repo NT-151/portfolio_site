@@ -63,6 +63,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -71,6 +72,7 @@ body {
   color: #1a1c1c;
   font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a:not([class]) {
@@ -238,6 +240,7 @@ button {
   background: #f9f9f9;
   border: 1px solid rgb(0 0 0 / 10%);
   min-height: 152px;
+  min-width: 0;
   padding: 22px;
 }
 
@@ -261,6 +264,7 @@ button {
   font-size: 14px;
   line-height: 1.55;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .clinic-visual__panel ul {
@@ -322,10 +326,12 @@ button {
   .clinic-visual__header {
     align-items: flex-start;
     flex-direction: column;
+    overflow-wrap: anywhere;
   }
 
   .clinic-visual__grid {
     grid-template-columns: 1fr;
+    padding: 24px;
   }
 
   .clinic-visual__panel--wide {
