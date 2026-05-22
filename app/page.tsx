@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
+import EditorialFooter from "./components/EditorialFooter";
 
 const services = [
   {
@@ -192,12 +194,12 @@ export default function HomePage() {
             >
               PORTFOLIO
             </a>
-            <button
-              className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-on-primary transition-all hover:opacity-80"
-              type="button"
+            <Link
+              className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-white transition-all hover:opacity-80"
+              href="/contact"
             >
               CONSULTATION
-            </button>
+            </Link>
           </div>
           <button className="text-primary md:hidden" type="button">
             <MenuIcon />
@@ -403,27 +405,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="w-full border-t border-primary/10 bg-surface">
-        <div className="mx-auto flex max-w-max-width flex-col items-center justify-between px-margin-desktop py-12 md:flex-row">
-          <div className="mb-8 font-headline-md text-headline-md text-primary md:mb-0">
-            AETHEREAL
-          </div>
-          <div className="mb-8 flex gap-8 md:mb-0">
-            {["Privacy", "Terms", "LinkedIn", "Contact"].map((item) => (
-              <a
-                className="font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-primary"
-                href="#"
-                key={item}
-              >
-                {item.toUpperCase()}
-              </a>
-            ))}
-          </div>
-          <div className="font-label-caps text-label-caps text-on-surface-variant">
-            © 2024 AETHEREAL AI. ALL RIGHTS RESERVED.
-          </div>
-        </div>
-      </footer>
+      <EditorialFooter />
     </div>
   );
 }

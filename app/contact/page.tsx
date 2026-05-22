@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import EditorialFooter from "../components/EditorialFooter";
 
 const contactImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuC7DgkXc3Rs37zGwCK4Pq6jM0aF1ahouz_FFHhI1tW9d-pddX4kF0c0BeTlFW7sKUlNLRNreJ_uZeU-lBVJZSxRhnHbSIcVS_SW6ayOSCOszRz675eLEuG7bHlYGYxqomZFpB2lgIM62kPWITMjIVvUkctpmSyE9JxCmy-yJbsIt0UJoh4rfQccPchMz2C25iWDTKSke2AvBp_K0ZM8rzw1Z9yYvE4CpO5-CcGQNlJEdrRv6uAFH0g0i6eBgB8i7cwb2yG--FbYanM4";
@@ -121,12 +122,12 @@ export default function ContactPage() {
               CONTACT
             </Link>
           </div>
-          <button
-            className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-on-primary transition-all hover:opacity-80"
-            type="button"
+          <Link
+            className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-white transition-all hover:opacity-80"
+            href="/contact"
           >
             CONSULTATION
-          </button>
+          </Link>
         </nav>
       </header>
 
@@ -209,7 +210,7 @@ export default function ContactPage() {
                       {inquiry.label.toUpperCase()}
                     </p>
                     <a
-                      className="font-body-md text-body-md underline underline-offset-4 transition-colors hover:text-muted-teal"
+                      className="font-body-md text-body-md text-primary underline underline-offset-4 transition-colors hover:text-muted-teal"
                       href={`mailto:${inquiry.email}`}
                     >
                       {inquiry.email}
@@ -256,39 +257,7 @@ export default function ContactPage() {
         </section>
       </main>
 
-      <footer className="w-full border-t border-primary/10 bg-surface">
-        <div className="mx-auto flex max-w-max-width flex-col items-center justify-between px-margin-desktop py-12 md:flex-row">
-          <div className="mb-8 font-headline-md text-headline-md text-primary md:mb-0">
-            AETHEREAL
-          </div>
-          <div className="mb-8 flex gap-8 md:mb-0">
-            <a
-              className="font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-primary"
-              href="#"
-            >
-              PRIVACY
-            </a>
-            <a
-              className="font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-primary"
-              href="#"
-            >
-              TERMS
-            </a>
-            <a
-              className="font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-primary"
-              href="#"
-            >
-              LINKEDIN
-            </a>
-            <a className="font-label-caps text-label-caps font-bold text-primary" href="#">
-              CONTACT
-            </a>
-          </div>
-          <p className="font-label-caps text-label-caps text-on-surface-variant">
-            © 2024 AETHEREAL AI. ALL RIGHTS RESERVED.
-          </p>
-        </div>
-      </footer>
+      <EditorialFooter />
     </div>
   );
 }
