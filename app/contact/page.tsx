@@ -185,6 +185,18 @@ export default function ContactPage() {
                 REQUEST AUDIT
                 <ArrowIcon />
               </button>
+              <p className="max-w-xl text-sm leading-relaxed text-on-surface-variant">
+                By sending an enquiry, you agree that Allinhaus can use the
+                details you provide to respond to you. Please do not include
+                patient clinical information in this form. Read the{" "}
+                <Link
+                  className="text-primary underline underline-offset-4 transition-colors hover:text-muted-teal"
+                  href="/privacy"
+                >
+                  privacy policy
+                </Link>
+                .
+              </p>
             </form>
           </div>
 

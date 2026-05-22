@@ -8,8 +8,11 @@ const primaryLinks = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/nayzgi-teklebrhan-6357a72aa/",
+  },
+  { label: "Instagram", href: "https://www.instagram.com/allinhaus_com/" },
 ];
 
 export default function EditorialFooter() {
@@ -62,6 +65,8 @@ export default function EditorialFooter() {
                     <a
                       className="font-label-md text-[18px] uppercase leading-tight text-primary transition-colors hover:text-muted-teal"
                       href={link.href}
+                      rel="noreferrer"
+                      target="_blank"
                     >
                       {link.label}
                     </a>
@@ -72,7 +77,15 @@ export default function EditorialFooter() {
           </div>
 
           <div className="flex flex-col gap-4 text-[12px] font-medium uppercase leading-tight text-on-surface-variant md:col-span-12 md:flex-row md:items-center md:justify-between">
-            <p>© ALLINHAUS AI. ALL RIGHTS RESERVED · PRIVACY</p>
+            <p>
+              © ALLINHAUS AI. ALL RIGHTS RESERVED ·{" "}
+              <Link
+                className="transition-colors hover:text-primary"
+                href="/privacy"
+              >
+                PRIVACY
+              </Link>
+            </p>
             <p>AI SYSTEMS FOR BEAUTY CLINICS</p>
           </div>
         </div>
