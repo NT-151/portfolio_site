@@ -10,13 +10,6 @@ const navItems = [
   { label: "Process", href: "/#process" },
 ];
 
-const auditItems = [
-  "Where enquiries arrive and how quickly they are answered",
-  "What patient context the team needs before drafting a reply",
-  "How consultation transcripts become treatment notes",
-  "Where invoices, Dropbox files, and exports create repeat admin",
-];
-
 function ArrowIcon() {
   return (
     <svg
@@ -182,7 +175,7 @@ export default function ContactPage() {
                 className="flex w-full items-center justify-center gap-4 rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-auto"
                 type="submit"
               >
-                REQUEST AUDIT
+                CONTACT US
                 <ArrowIcon />
               </button>
               <p className="max-w-xl text-sm leading-relaxed text-on-surface-variant">
@@ -198,35 +191,6 @@ export default function ContactPage() {
                 .
               </p>
             </form>
-          </div>
-
-          <div className="reveal space-y-12 md:col-span-4 md:col-start-9">
-            <div>
-              <h3 className="mb-8 border-b border-primary/10 pb-4 font-label-caps text-label-caps text-primary">
-                WHAT I WILL REVIEW
-              </h3>
-              <div className="space-y-5">
-                {auditItems.map((item) => (
-                  <p
-                    className="border-l border-muted-teal pl-5 font-body-md text-body-md text-on-surface-variant"
-                    key={item}
-                  >
-                    {item}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="border border-primary/10 bg-white p-8">
-              <p className="mb-4 font-label-caps text-label-caps text-muted-teal">
-                GOOD FIT
-              </p>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                A beauty or aesthetics clinic with enough enquiries, notes, and
-                admin handoffs that the owner is still acting as the operating
-                system.
-              </p>
-            </div>
           </div>
         </section>
       </main>
