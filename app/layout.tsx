@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AETHEREAL | AI Automation Agency",
+  title: "AETHEREAL | AI Automation for Beauty Clinics",
   description:
-    "AETHEREAL architects custom AI automation solutions for modern business operations.",
+    "AI automation systems for beauty clinics, including unified inboxes, LLM reply drafts, treatment note summaries, Pabau-ready exports, and invoice workflows.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
