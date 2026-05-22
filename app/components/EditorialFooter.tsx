@@ -72,7 +72,7 @@ export default function EditorialFooter() {
           </div>
 
           <div className="flex flex-col gap-4 text-[12px] font-medium uppercase leading-tight text-on-surface-variant md:col-span-12 md:flex-row md:items-center md:justify-between">
-            <p>© AETHEREAL AI. ALL RIGHTS RESERVED · PRIVACY</p>
+            <p>© ALLINHAUS AI. ALL RIGHTS RESERVED · PRIVACY</p>
             <p>AI SYSTEMS FOR BEAUTY CLINICS</p>
           </div>
         </div>

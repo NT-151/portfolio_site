@@ -90,7 +90,7 @@ export default function ContactPage() {
             className="font-headline-md text-headline-md font-bold text-primary"
             href="/"
           >
-            AETHEREAL
+            ALLINHAUS
           </Link>
           <div className="hidden items-center gap-10 md:flex">
             {navItems.map((item) => (

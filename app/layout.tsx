@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AETHEREAL | AI Automation for Beauty Clinics",
+  title: "Allinhaus | AI Automation for Beauty Clinics",
   description:
     "AI automation systems for beauty clinics, including unified inboxes, LLM reply drafts, treatment note summaries, Pabau-ready exports, and invoice workflows.",
 };
