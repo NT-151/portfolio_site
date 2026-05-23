@@ -5,7 +5,7 @@ const calendlyReviewLink = "https://calendly.com/nayzgi-allinhaus/30min";
 const primaryLinks = [
   { label: "Services", href: "/#systems" },
   { label: "Process", href: "/#process" },
-  { label: "Work", href: "/#work" },
+  { label: "Testimonials", href: "/#work" },
   { label: "Contact", href: "/contact" },
 ];
 

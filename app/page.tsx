@@ -68,23 +68,12 @@ const workflowSteps = [
   },
 ];
 
-const workHighlights = [
-  {
-    label: "Communication",
-    title: "Inbox pressure reduced",
-    copy: "Client messages, enquiries, and follow-ups can be organised into a single operational view with AI-assisted drafting.",
-  },
-  {
-    label: "Documentation",
-    title: "Notes made more consistent",
-    copy: "Consultation transcripts can become structured treatment notes, summaries, and export-ready records.",
-  },
-  {
-    label: "Administration",
-    title: "Invoices and tasks kept moving",
-    copy: "Invoice files, approvals, follow-ups, and operational actions can be routed without relying on memory or late-night catch-up.",
-  },
-];
+const testimonialPlaceholder = {
+  quote:
+    "Placeholder testimonial goes here. Replace this with a real client review that explains what changed, how the process felt, and what result the clinic noticed after working with Allinhaus.",
+  name: "Client Name",
+  date: "Time since review",
+};
 
 const adminCosts = [
   "slower response times",
@@ -328,7 +317,7 @@ export default function HomePage() {
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
               href="#work"
             >
-              WORK
+              TESTIMONIALS
             </a>
             <a
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
@@ -504,49 +493,40 @@ export default function HomePage() {
           className="mx-auto max-w-max-width px-margin-desktop py-32"
           id="work"
         >
-          <div className="reveal mb-20 grid grid-cols-1 gap-gutter md:grid-cols-12">
+          <div className="reveal grid grid-cols-1 items-start gap-12 md:grid-cols-12">
             <div className="md:col-span-5">
               <span className="font-label-caps text-label-caps text-muted-teal">
-                WORK
+                TESTIMONIALS
               </span>
               <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
-                Built inside a real clinic environment.
+                What clients say about the workflow.
               </h2>
             </div>
-            <div className="space-y-6 font-body-lg text-body-lg text-on-surface-variant md:col-span-6 md:col-start-7">
-              <p>
-                These systems were developed through operational work inside an
-                aesthetic clinic and shaped around the day-to-day realities of
-                clinic administration.
-              </p>
-              <p>
-                The focus was reducing repetitive operational work that consumed
-                staff time every week: inbox handling, clinical documentation,
-                invoice organisation, records, follow-ups, and task handovers.
-              </p>
-            </div>
-          </div>
-          <div className="grid gap-px border border-primary/10 bg-primary/10">
-            {workHighlights.map((item) => (
-              <div
-                className="grid gap-5 bg-background p-6 md:grid-cols-[180px_1fr]"
-                key={item.title}
-              >
-                <div>
-                  <span className="font-label-caps text-label-caps text-muted-teal">
-                    {item.label.toUpperCase()}
-                  </span>
+            <div className="md:col-span-6 md:col-start-7">
+              <article className="rounded-lg border border-primary/10 bg-white p-7 shadow-[0_3px_14px_rgba(0,0,0,0.07)] md:p-8">
+                <div
+                  aria-label="Five star rating"
+                  className="mb-4 flex gap-0.5 text-[15px] leading-none text-[#f7b500]"
+                >
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span aria-hidden="true" key={star}>
+                      &#9733;
+                    </span>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="mb-2 font-headline-md text-headline-md text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">
-                    {item.copy}
+                <blockquote className="font-body-md text-[16px] italic leading-relaxed text-on-surface-variant">
+                  &quot;{testimonialPlaceholder.quote}&quot;
+                </blockquote>
+                <footer className="mt-6">
+                  <p className="font-label-md text-[15px] font-semibold leading-tight text-primary">
+                    {testimonialPlaceholder.name}
                   </p>
-                </div>
-              </div>
-            ))}
+                  <p className="mt-1 text-[14px] leading-tight text-on-surface-variant/70">
+                    {testimonialPlaceholder.date}
+                  </p>
+                </footer>
+              </article>
+            </div>
           </div>
         </section>
 
