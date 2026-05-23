@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect } from "react";
 import EditorialFooter from "./components/EditorialFooter";
 
+const calendlyReviewLink = "https://calendly.com/nayzgi-allinhaus/30min";
+
 const services = [
   {
     icon: "inbox",
@@ -334,12 +336,14 @@ export default function HomePage() {
             >
               PROCESS
             </a>
-            <Link
+            <a
               className="rounded-DEFAULT bg-primary px-6 py-3 font-label-caps text-label-caps text-white transition-all hover:opacity-80"
-              href="/contact"
+              href={calendlyReviewLink}
+              rel="noreferrer"
+              target="_blank"
             >
               BOOK A WORKFLOW REVIEW
-            </Link>
+            </a>
           </div>
           <button className="text-primary md:hidden" type="button">
             <MenuIcon />
@@ -363,12 +367,14 @@ export default function HomePage() {
                 every week.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link
+                <a
                   className="w-full rounded-DEFAULT bg-primary px-8 py-4 text-center font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-auto"
-                  href="/contact"
+                  href={calendlyReviewLink}
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   BOOK A WORKFLOW REVIEW
-                </Link>
+                </a>
                 <a
                   className="w-full rounded-DEFAULT border border-primary px-8 py-4 text-center font-label-caps text-label-caps text-primary transition-colors hover:bg-surface-variant md:w-auto"
                   href="#systems"
@@ -618,12 +624,14 @@ export default function HomePage() {
               can immediately reduce workload and save time.
             </p>
             <div className="flex flex-col justify-center gap-6 md:flex-row">
-              <Link
+              <a
                 className="w-full rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-base text-on-primary transition-all hover:bg-muted-teal md:w-auto"
-                href="/contact"
+                href={calendlyReviewLink}
+                rel="noreferrer"
+                target="_blank"
               >
                 BOOK A WORKFLOW REVIEW
-              </Link>
+              </a>
               <a
                 className="w-full rounded-DEFAULT border border-primary px-12 py-5 font-label-caps text-base text-primary transition-all hover:bg-surface-variant md:w-auto"
                 href="#systems"

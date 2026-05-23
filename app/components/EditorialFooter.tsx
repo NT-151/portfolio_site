@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const calendlyReviewLink = "https://calendly.com/nayzgi-allinhaus/30min";
+
 const primaryLinks = [
   { label: "Services", href: "/#systems" },
   { label: "Process", href: "/#process" },
@@ -29,12 +31,14 @@ export default function EditorialFooter() {
               <h2 className="font-headline-xl text-[56px] font-light leading-none md:text-[104px]">
                 AUTOMATE
               </h2>
-              <Link
+              <a
                 className="rounded-full bg-muted-teal px-8 py-5 font-headline-md text-[18px] font-medium leading-none text-primary transition-colors hover:bg-secondary-fixed-dim md:px-10"
-                href="/contact"
+                href={calendlyReviewLink}
+                rel="noreferrer"
+                target="_blank"
               >
                 BOOK REVIEW
-              </Link>
+              </a>
             </div>
             <h2 className="self-start font-headline-xl text-[48px] font-bold leading-none md:self-center md:pl-[34%] md:text-[96px]">
               THE ADMIN
