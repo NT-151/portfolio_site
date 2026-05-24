@@ -10,6 +10,20 @@ const navItems = [
   { label: "Process", href: "/#process" },
 ];
 
+const contactEmail = "nayzgi@allinhaus.com";
+const contactMailto = `mailto:${contactEmail}?subject=${encodeURIComponent(
+  "Clinic automation audit enquiry",
+)}&body=${encodeURIComponent(
+  [
+    "Hi Allinhaus,",
+    "",
+    "I would like to discuss a clinic automation audit.",
+    "",
+    "Clinic name:",
+    "Biggest admin bottleneck:",
+  ].join("\n"),
+)}`;
+
 function ArrowIcon() {
   return (
     <svg
@@ -45,33 +59,8 @@ export default function ContactPage() {
 
     revealElements.forEach((element) => revealObserver.observe(element));
 
-    const fields = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
-      "input, textarea",
-    );
-
-    const cleanups = Array.from(fields).map((field) => {
-      const label = field.parentElement?.querySelector("label");
-      const onFocus = () => {
-        label?.classList.replace("text-on-surface-variant", "text-muted-teal");
-      };
-      const onBlur = () => {
-        if (!field.value) {
-          label?.classList.replace("text-muted-teal", "text-on-surface-variant");
-        }
-      };
-
-      field.addEventListener("focus", onFocus);
-      field.addEventListener("blur", onBlur);
-
-      return () => {
-        field.removeEventListener("focus", onFocus);
-        field.removeEventListener("blur", onBlur);
-      };
-    });
-
     return () => {
       revealObserver.disconnect();
-      cleanups.forEach((cleanup) => cleanup());
     };
   }, []);
 
@@ -130,58 +119,33 @@ export default function ContactPage() {
 
         <section className="mx-auto grid max-w-max-width grid-cols-1 gap-16 px-margin-desktop pb-32 md:grid-cols-12">
           <div className="reveal md:col-span-7">
-            <form className="space-y-12">
-              <div className="group border-b border-primary/10 transition-colors focus-within:border-muted-teal">
-                <label className="mb-4 block font-label-caps text-label-caps text-on-surface-variant">
-                  NAME
-                </label>
-                <input
-                  className="w-full border-none bg-transparent p-0 pb-4 font-body-md text-body-md placeholder:text-on-surface-variant/30 focus:ring-0"
-                  placeholder="Your name"
-                  type="text"
-                />
-              </div>
-              <div className="group border-b border-primary/10 transition-colors focus-within:border-muted-teal">
-                <label className="mb-4 block font-label-caps text-label-caps text-on-surface-variant">
-                  CLINIC
-                </label>
-                <input
-                  className="w-full border-none bg-transparent p-0 pb-4 font-body-md text-body-md placeholder:text-on-surface-variant/30 focus:ring-0"
-                  placeholder="Clinic name"
-                  type="text"
-                />
-              </div>
-              <div className="group border-b border-primary/10 transition-colors focus-within:border-muted-teal">
-                <label className="mb-4 block font-label-caps text-label-caps text-on-surface-variant">
+            <div className="space-y-10 border-y border-primary/10 py-12">
+              <div>
+                <span className="font-label-caps text-label-caps text-muted-teal">
                   EMAIL
-                </label>
-                <input
-                  className="w-full border-none bg-transparent p-0 pb-4 font-body-md text-body-md placeholder:text-on-surface-variant/30 focus:ring-0"
-                  placeholder="you@clinic.com"
-                  type="email"
-                />
+                </span>
+                <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
+                  Send the details directly.
+                </h2>
+                <p className="mt-5 max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
+                  Email the clinic name, current workflow, and the admin task
+                  that is taking the most time. Please do not include patient
+                  clinical information.
+                </p>
               </div>
-              <div className="group border-b border-primary/10 transition-colors focus-within:border-muted-teal">
-                <label className="mb-4 block font-label-caps text-label-caps text-on-surface-variant">
-                  BIGGEST ADMIN BOTTLENECK
-                </label>
-                <textarea
-                  className="w-full resize-none border-none bg-transparent p-0 pb-4 font-body-md text-body-md placeholder:text-on-surface-variant/30 focus:ring-0"
-                  placeholder="Social enquiries, treatment notes, Pabau exports, invoices, or something else..."
-                  rows={4}
-                />
-              </div>
-              <button
-                className="flex w-full items-center justify-center gap-4 rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-auto"
-                type="submit"
+              <a
+                className="flex w-full items-center justify-center gap-4 rounded-DEFAULT bg-primary px-12 py-5 font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-fit"
+                href={contactMailto}
               >
-                CONTACT US
+                EMAIL US
                 <ArrowIcon />
-              </button>
+              </a>
+              <p className="font-label-md text-label-md text-primary">
+                {contactEmail}
+              </p>
               <p className="max-w-xl text-sm leading-relaxed text-on-surface-variant">
-                By sending an enquiry, you agree that Allinhaus can use the
-                details you provide to respond to you. Please do not include
-                patient clinical information in this form. Read the{" "}
+                By emailing an enquiry, you agree that Allinhaus can use the
+                details you provide to respond to you. Read the{" "}
                 <Link
                   className="text-primary underline underline-offset-4 transition-colors hover:text-muted-teal"
                   href="/privacy"
@@ -190,7 +154,7 @@ export default function ContactPage() {
                 </Link>
                 .
               </p>
-            </form>
+            </div>
           </div>
         </section>
       </main>
