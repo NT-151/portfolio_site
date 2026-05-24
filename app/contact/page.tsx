@@ -101,23 +101,7 @@ export default function ContactPage() {
       </header>
 
       <main className="overflow-x-hidden">
-        <section className="reveal mx-auto max-w-max-width px-margin-desktop py-28">
-          <div className="max-w-[820px]">
-            <span className="font-label-caps text-label-caps text-muted-teal">
-              CONTACT
-            </span>
-            <h1 className="mb-8 mt-5 font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
-              Book a clinic automation audit.
-            </h1>
-            <p className="max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
-              Share how your clinic handles enquiries, notes, exports, and
-              invoices. I will look for the parts AI can make faster without
-              removing practitioner review.
-            </p>
-          </div>
-        </section>
-
-        <section className="mx-auto grid max-w-max-width grid-cols-1 gap-16 px-margin-desktop pb-32 md:grid-cols-12">
+        <section className="mx-auto grid max-w-max-width grid-cols-1 gap-16 px-margin-desktop py-24 md:grid-cols-12 md:py-32">
           <div className="reveal md:col-span-7">
             <div className="space-y-10 border-y border-primary/10 py-12">
               <div>
@@ -125,12 +109,12 @@ export default function ContactPage() {
                   EMAIL
                 </span>
                 <h2 className="mt-4 font-headline-lg text-headline-lg text-primary">
-                  Send the details directly.
+                  Contact us.
                 </h2>
                 <p className="mt-5 max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
-                  Email the clinic name, current workflow, and the admin task
-                  that is taking the most time. Please do not include patient
-                  clinical information.
+                  Please email us with your name, current workflow, and the
+                  admin tasks that are taking the most time. Please do not
+                  include patient clinical information.
                 </p>
               </div>
               <a

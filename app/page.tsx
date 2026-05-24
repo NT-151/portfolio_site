@@ -68,21 +68,24 @@ const workflowSteps = [
   },
 ];
 
-const testimonialPlaceholder = {
-  quote:
-    "Placeholder testimonial goes here. Replace this with a real client review that explains what changed, how the process felt, and what result the clinic noticed after working with Allinhaus.",
-  name: "Client Name",
-  date: "Time since review",
-};
+const testimonialPlaceholder = [
+  {
+    quote:
+      "Im finally caught up with my invoices, I have more time to spend on Instagram and TikTok marketing and I can focus on revenue generating activies. I would definitely recommend ALLINHAUS.",
+    name: "Dr Fiori Clinic",
+    date: "Time since review",
+  },
+  {},
+];
 
 const adminCosts = [
-  "slower response times",
-  "missed enquiries",
-  "inconsistent records",
-  "delayed invoices",
-  "staff overload",
-  "reduced treatment capacity",
-  "less time spent with clients",
+  "Slower response times",
+  "Missed enquiries",
+  "Inconsistent records",
+  "Delayed invoices",
+  "Staff overload",
+  "Reduced treatment capacity",
+  "Less time spent on marketing and client acquisition",
 ];
 
 const transformationPoints = [
@@ -221,61 +224,6 @@ function ServiceIcon({ name }: { name: string }) {
   );
 }
 
-function ClinicOperationsVisual() {
-  return (
-    <div
-      className="clinic-visual"
-      aria-label="Clinic AI operations dashboard preview"
-    >
-      <div className="clinic-visual__header">
-        <span>Aesthetic clinic operations</span>
-        <span>Live workspace</span>
-      </div>
-      <div className="clinic-visual__grid">
-        <div className="clinic-visual__panel clinic-visual__panel--wide">
-          <div className="clinic-visual__label">Unified inbox</div>
-          <div className="clinic-message">
-            <span className="clinic-dot" />
-            <div>
-              <strong>Instagram enquiry</strong>
-              <p>Consultation request waiting for response</p>
-            </div>
-          </div>
-          <div className="clinic-message">
-            <span className="clinic-dot clinic-dot--email" />
-            <div>
-              <strong>Email follow-up</strong>
-              <p>Post-treatment aftercare question</p>
-            </div>
-          </div>
-        </div>
-        <div className="clinic-visual__panel">
-          <div className="clinic-visual__label">AI draft</div>
-          <p>
-            Confirm suitability, offer booking slots, include aftercare note,
-            and keep final review with the clinic team.
-          </p>
-        </div>
-        <div className="clinic-visual__panel">
-          <div className="clinic-visual__label">Next actions</div>
-          <ul>
-            <li>Book patch test</li>
-            <li>Prepare consent record</li>
-            <li>Send deposit invoice</li>
-          </ul>
-        </div>
-        <div className="clinic-visual__panel clinic-visual__panel--wide">
-          <div className="clinic-visual__label">Clinical note summary</div>
-          <p>
-            Treatment goals, contraindications discussed, treatment areas,
-            aftercare advice, and export-ready record.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function HomePage() {
   useEffect(() => {
     const revealElements = document.querySelectorAll(".reveal");
@@ -331,7 +279,7 @@ export default function HomePage() {
               rel="noreferrer"
               target="_blank"
             >
-              BOOK A WORKFLOW REVIEW
+              GET IN TOUCH
             </a>
           </div>
           <button className="text-primary md:hidden" type="button">
@@ -341,39 +289,34 @@ export default function HomePage() {
       </header>
 
       <main>
-        <section className="mx-auto max-w-max-width overflow-hidden px-margin-desktop py-24 md:py-32">
-          <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-12">
-            <div className="reveal min-w-0 md:col-span-6">
-              <span className="font-label-caps text-label-caps text-muted-teal">
-                AI AUTOMATION FOR BEAUTY CLINICS
-              </span>
-              <h1 className="mb-8 mt-5 max-w-4xl font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
-                Admin is consuming your clinic.
-              </h1>
-              <p className="mb-10 max-w-xl font-body-lg text-body-lg text-on-surface-variant">
-                Automate the repetitive work behind consultations, messages,
-                notes, invoices, and follow-ups so your team gets time back
-                every week.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  className="w-full rounded-DEFAULT bg-primary px-8 py-4 text-center font-label-caps text-label-caps text-on-primary transition-colors hover:bg-muted-teal md:w-auto"
-                  href={calendlyReviewLink}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  BOOK A WORKFLOW REVIEW
-                </a>
-                <a
-                  className="w-full rounded-DEFAULT border border-primary px-8 py-4 text-center font-label-caps text-label-caps text-primary transition-colors hover:bg-surface-variant md:w-auto"
-                  href="#systems"
-                >
-                  SEE THE SYSTEMS
-                </a>
-              </div>
-            </div>
-            <div className="reveal reveal-delay-200 min-w-0 md:col-span-6">
-              <ClinicOperationsVisual />
+        <section className="landing-focus-hero">
+          <div className="reveal landing-focus-hero__content">
+            <span className="landing-focus-hero__pill">
+              AI AUTOMATION FOR BEAUTY CLINICS
+            </span>
+            <h1>Admin is consuming your clinic.</h1>
+            <p>
+              Automate the repetitive work behind consultations, messages,
+              notes, invoices, and follow-ups so your team gets time back every
+              week.
+            </p>
+            <div className="landing-focus-hero__actions">
+              <a
+                className="landing-focus-hero__button landing-focus-hero__button--primary"
+                href={calendlyReviewLink}
+                rel="noreferrer"
+                target="_blank"
+              >
+                GET IN TOUCH
+                <span aria-hidden="true">-&gt;</span>
+              </a>
+              <a
+                className="landing-focus-hero__button landing-focus-hero__button--secondary"
+                href="#systems"
+              >
+                SEE THE SYSTEMS
+                <span aria-hidden="true">-&gt;</span>
+              </a>
             </div>
           </div>
         </section>
@@ -402,8 +345,8 @@ export default function HomePage() {
                 faster.
               </p>
               <p>
-                Owners end up spending hours every week on repetitive tasks
-                that do not generate revenue directly, yet still need to be done
+                Owners end up spending hours every week on repetitive tasks that
+                do not generate revenue directly, yet still need to be done
                 accurately.
               </p>
             </div>
@@ -436,8 +379,8 @@ export default function HomePage() {
             <div className="reveal reveal-delay-100 md:col-span-6 md:col-start-7">
               <div className="space-y-6 font-body-lg text-body-lg text-on-surface-variant">
                 <p>
-                  We build AI-supported systems around the workflows clinics
-                  already use.
+                  The ALLINHAUS agency builds systems around the workflows
+                  clinics already use.
                 </p>
                 <p>
                   Instead of forcing teams into entirely new processes, we
@@ -515,14 +458,11 @@ export default function HomePage() {
                   ))}
                 </div>
                 <blockquote className="font-body-md text-[16px] italic leading-relaxed text-on-surface-variant">
-                  &quot;{testimonialPlaceholder.quote}&quot;
+                  &quot;{testimonialPlaceholder[0].quote}&quot;
                 </blockquote>
                 <footer className="mt-6">
                   <p className="font-label-md text-[15px] font-semibold leading-tight text-primary">
-                    {testimonialPlaceholder.name}
-                  </p>
-                  <p className="mt-1 text-[14px] leading-tight text-on-surface-variant/70">
-                    {testimonialPlaceholder.date}
+                    {testimonialPlaceholder[0].name}
                   </p>
                 </footer>
               </article>
@@ -530,7 +470,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-primary py-28 text-on-primary" id="transformation">
+        <section
+          className="bg-primary py-28 text-on-primary"
+          id="transformation"
+        >
           <div className="mx-auto max-w-max-width px-margin-desktop">
             <div className="reveal mb-16 max-w-3xl">
               <span className="font-label-caps text-label-caps text-muted-teal">
@@ -596,7 +539,7 @@ export default function HomePage() {
         <section className="bg-white py-32">
           <div className="reveal mx-auto max-w-max-width px-margin-desktop text-center">
             <h2 className="mb-8 font-headline-xl text-headline-xl-mobile text-primary md:text-headline-xl">
-              Book a workflow review.
+              Get in touch.
             </h2>
             <p className="mx-auto mb-14 max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
               We review how your clinic currently handles communication, notes,
@@ -610,7 +553,7 @@ export default function HomePage() {
                 rel="noreferrer"
                 target="_blank"
               >
-                BOOK A WORKFLOW REVIEW
+                GET IN TOUCH
               </a>
               <a
                 className="w-full rounded-DEFAULT border border-primary px-12 py-5 font-label-caps text-base text-primary transition-all hover:bg-surface-variant md:w-auto"
