@@ -6,7 +6,7 @@ import EditorialFooter from "../components/EditorialFooter";
 
 const navItems = [
   { label: "Services", href: "/#systems" },
-  { label: "Testimonials", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "Process", href: "/#process" },
 ];
 

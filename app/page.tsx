@@ -263,9 +263,9 @@ export default function HomePage() {
             </a>
             <a
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
-              href="#work"
+              href="/work"
             >
-              TESTIMONIALS
+              WORK
             </a>
             <a
               className="font-label-caps text-label-caps text-on-surface-variant transition-colors duration-200 hover:text-muted-teal"
@@ -464,6 +464,13 @@ export default function HomePage() {
                   <p className="font-label-md text-[15px] font-semibold leading-tight text-primary">
                     {testimonialPlaceholder[0].name}
                   </p>
+                  <Link
+                    className="mt-5 inline-flex items-center gap-2 border-b border-primary pb-1 font-label-caps text-label-caps text-primary transition-colors hover:border-muted-teal hover:text-muted-teal"
+                    href="/work"
+                  >
+                    SEE WORK I DID
+                    <span aria-hidden="true">-&gt;</span>
+                  </Link>
                 </footer>
               </article>
             </div>
